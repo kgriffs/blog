@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+cd _assets/css/_sass/
+compass watch
