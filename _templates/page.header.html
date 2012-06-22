@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 {% if site.author %}<meta name="author" content="{{ site.author }}">{% endif %}
-<meta name="description" content="{{ post.summary if post else site.description }}">
+<meta name="description" content="{{ post.excerpt if post else site.description }}">
 <meta name="generator" content="mynt v{{ site.version }}">
 
 <link rel="shortcut icon" href="{{ get_asset('images/favicon.ico') }}" type="image/x-icon">
@@ -10,7 +10,8 @@
 
 <link href='http://fonts.googleapis.com/css?family=Londrina+Sketch|Chelsea+Market|PT+Sans' rel='stylesheet'>
 
-<!-- <link href='http://fonts.googleapis.com/css?family=Fredericka+the+Great|Londrina+Sketch|Chelsea+Market|Raleway:100|Press+Start+2P|Amatic+SC' rel='stylesheet'> -->
+{# <link href='http://fonts.googleapis.com/css?family=Fredericka+the+Great|Londrina+Sketch|Chelsea+Market|Raleway:100|Sigmar+One|Press+Start+2P|Amatic+SC' rel='stylesheet'>
+#}
 
 <link rel="stylesheet" href="{{ get_asset('css/screen.css') }}" type="text/css">
 {% if site.pygmentize %}<link rel="stylesheet" href="{{ get_asset('css/pygments.css') }}" type="text/css">{% endif %}

@@ -16,6 +16,10 @@
   &:after {
     clear: both; } }
 
+@mixin scale-text {
+  @include scale(1.2, 1.2);
+}
+
 // VENDOR PREFIXES
 @mixin border-radius($radius, $corner: false) {
   @if $corner {
