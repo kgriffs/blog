@@ -73,3 +73,5 @@ jinja:
         - jinja2.ext.loopcontrols
 tag_layout: tag.html
 tags_url: /tags/
+
+posts_url: /<year>/<month>/<day>/<title>.html
