@@ -10,19 +10,17 @@ summary:
 
 **[Enterprise Integration Patterns][2]**. A readers-digest version of the book by the same name, this online catalog offers a good summary message bus patterns. If you are new to enterprise architecture, this site also defines a lot of terms you can use to win friends and influence people.
 
-**[Building a Faster Web][10]**. I have it [on good authority][4] that [SPDY][3] has been chosen as the starting point for the IETF's next big project, HTTP 2.0. If you want to target SPDY in production today, go for it, but be prepared to update your servers every couple of months.
+**[Building a Faster Web][10]**. I have it [on good authority][4] that [SPDY][3] has been chosen as the starting point for the IETF's next big project, HTTP 2.0. It will be a binary protocol, with optional TLS. If you want to target SPDY in production today, go for it, but be prepared to update your servers every couple of months.
 
 **[Node.js vs PHP: Fight!][8]**. Node takes PHP to school. I doubt re-running with opcode caching enabled would make PHP look much better. Anecdotally, the Node pipeline is *at least* 2x faster at serving web requests vs. Python WSGI. Ruby? Let's not go there...
-
-# Watching #
-
-
 
 # The Open Cloud #
 
 **[Anvil][5]**. How would you like a cloud to call your very own? Stand up an OpenStack cluster in no time flat.
 
-**[ATOM Nuke][10]**. TBD
+**[Logging as Event Streams][13]**. Slide deck from an OSCON talk that describe how the  Cloud Monitoring team @ Rackspace thinks about logging.
+
+**[HP Offers 'That Cloud Thing Everyone is Talking About'][12]**. All in good fun, of course. I can only begin to imagine how The Onion would "cover" AWS.
 
 
 # Community
@@ -33,7 +31,7 @@ summary:
 
 **[Programmer Moneyball][9]**. Insightful article written by someone who knows a thing or two about buzzwords, and how useful they are in identifying candidates for your open positions.
 
-**[Vanilla Forums][10]**. Rackspace just launched their internal forums on Vanilla. Looks like a less-ugly replacement for phpBB. 
+**[Vanilla Forums][11]**. Rackspace just launched their internal forums on Vanilla. Looks like a less-ugly replacement for phpBB. 
 
 [1]:http://devmag.org.za/2012/07/29/how-to-choose-colours-procedurally-algorithms/
 [2]:http://www.eaipatterns.com/toc.html
@@ -45,3 +43,6 @@ summary:
 [8]:http://zgadzaj.com/benchmarking-nodejs-basic-performance-tests-against-apache-php
 [9]:http://www.altdevblogaday.com/2012/07/18/programmer-moneyball/
 [10]:http://www.igvita.com/slides/2012/html5devconf/#1
+[11]:http://vanillaforums.org
+[12]:http://www.theonion.com/video/hp-on-that-cloud-thing-that-everyone-else-is-talki,28789/
+[13]:http://ifup.org/slides/logging-as-event-streams-oscon-2012/#5
