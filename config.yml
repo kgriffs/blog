@@ -13,7 +13,7 @@
 #           base_url: /my-blog/
 #           domain: my-site.com
 base_url: /
-domain:
+domain: blog.kgriffs.com
 
 
 #
@@ -23,7 +23,7 @@ domain:
 # Used in header meta tags and the site feed.
 author: Kurt Griffiths
 # A description of your site to be used in header meta tags.
-description:
+description: The cloud movement significantly changes the nature of applications. Apps are no longer serfs hiding inside inpeneratable castles. You've now got to design connected agents, personal assistants, and social butterflies. And it all has to be elastic and scalable.
 # Used in the site feed.
 email:
 # Your site's subtitle.
@@ -46,7 +46,7 @@ post_limit: 10
 #
 
 # If you'd like to enable Google Analytics for your site, set this to your tracking code.
-analytics:
+analytics: UA-33985284-1
 # Set this to True to enable an Atom feed of your site.
 #   NOTE: `author`, `domain`, and `title` must be set to generate a valid feed.
 feed: true
@@ -56,9 +56,9 @@ social:
     dribbble:
     facebook:
     github: kgriffs
-    google_plus:
+    google_plus: 101128010261665489254
     lastfm:
-    stack_overflow: 21784/kgriffs
+    stack_overflow: 
     steam:
     twitter: kgriffs
 
