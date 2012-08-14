@@ -1,6 +1,11 @@
 Fluffy White Stuff
 ==================
 
-Kurt's Stupendous Blog
+A [cloud architecture blog][0] by [@kgriffs][2], principal architect an open cloud hacker [@rackspace][3].
 
-Powered by [Mynt](http://mynt.mirroredwhite.com)
+Powered by [Mynt][1]
+
+[0]:http://blog.kgriffs.com
+[1]:http://mynt.mirroredwhite.com
+[2]:http://kgriffs.com
+[3]:http://rackspace.com
