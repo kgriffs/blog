@@ -1,7 +1,7 @@
 Fluffy White Stuff
 ==================
 
-A [cloud architecture blog][0] by [@kgriffs][2], principal architect an open cloud hacker [@rackspace][3].
+A [cloud architecture blog][0] by [@kgriffs][2], principal architect and open cloud hacker [@rackspace][3].
 
 Powered by [Mynt][1]
 
