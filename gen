@@ -1,2 +1,4 @@
+#!/usr/bin/env bash
 mynt gen -f ../blog-generated/
-
+cd _assets/css/_sass/
+compass compile

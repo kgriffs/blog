@@ -38,7 +38,7 @@ title: Fluffy White Stuff
 
 # The amount of posts that will be displayed on the front page.
 #   Leave blank or set to `false` to disable.
-post_limit: 10
+post_limit: 5
 
 
 #
