@@ -2,6 +2,7 @@
 layout: post.html
 title: A first cloud post
 summary: Cloud computing is the Next Big Thing&trade;. This blog helps software developers sort it all out.
+tags: [Essays]
 ---
 
 Cloud computing is the Next Big Thing&trade;. This blog helps software developers sort it all out.

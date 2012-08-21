@@ -2,6 +2,7 @@
 layout: post.html
 title: Cloud Watch, Issue &#35;1
 summary: Occasionally I'll share a "Cloud Watch" newsletter of sorts, with interesting links that I've come across. Here's the first issue.
+tags: [News]
 ---
 
 Occasionally I'll share a "Cloud Watch" newsletter of sorts, with interesting links that I've come across.
