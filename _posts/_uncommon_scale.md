@@ -6,13 +6,33 @@ summary: Scaling your web app or service is a nice problem to have.  When, the r
 
 day of your repentance quote.
 
-Scaling your app or service is often described by startup veterans as "a nice problem to have," something that "you should worry about later, when&mdash;or if&mdash;your app takes off". People love to hear scaling war stories; how suddenly an app goes viral at 3am Sunday morning, and the team has just hours to rewrite and swap out half their backend, or face utter destruction at the hands of their new-found fans.
+Scaling your app or service is often described by startup veterans as "a nice problem to have," something that "you should worry about later, when&mdash;or if&mdash;your app takes off". People love to hear scaling war stories; how suddenly an app goes viral at 3am Sunday morning, and the team has just hours to rewrite and swap out half their backend, else face ironic destruction at the hands of their fans.
 
-Stories, on the other hand, about painless scaling and team members being home in time for dinner are far less common. Such experiences simply aren't sensational enough to gain much attention. That's a real shame, because sleepless nights and Rockstar-fueled hackathons should not be promoted as *business as usual*, but *the worst possible outcome*. 
+Stories about painless scaling and team members being home in time for dinner are far less common. Such experiences simply aren't sensational enough to gain much attention. That's a real shame, because sleepless nights and Rockstar-fueled hackathons should not be promoted as *business as usual*, but *the worst possible outcome*. 
 
-Eventually, we software developers will discover elegant solutions to the problem of scaling cloud apps, making knee-jerk, duct-tape engineering obsolete. In the meantime, you can avoid a lot of the pain and suffering by investing more time up-front thinking about your architecture, carefully choosing a hosting provider, and putting continuous integration and deployment at the heart of your development process.
+Eventually, we software developers will discover elegant solutions to the problem of scaling cloud apps, making knee-jerk, duct-tape engineering obsolete. In the meantime, I'm convinced we can avoid a lot of the pain and suffering by investing more time up-front in thinking about architecture, carefully choosing a hosting provider, and making continuous integration and deployment a non-negotiable part of our process.
 
-# Know Your Limits
+[Create illustrations for each majore point below]
+
+# Know Thy Limits
+
+[quote, scriptural or classic, poor in spirit, inherit the earth]
+
+Architectural self-awareness pays big dividends, particularly when applied at the beginning of a project. What tradeoffs are you making, and why? How far will your initial design take you? What will you do if usage spikes? The point is this: spending a little time up front thinking ahead, pushing and prodding early iterations of your app until they break&mdash;then picking up the pieces and putting them back together&mdash;will help you avoid a lot of nasty suprises later on in.
+
+Now, you don't need to create a massively scalable system right out of the gate; you can't afford to. On the other hand, you need only barter a few days' work to become reasonably familiar with the limitations&mdash;in terms of scalability, reliability and efficiency&mdash;inherent in the various components of your toolbox, including programming languages, frameworks, operating system, database, etc.
+
+Truth. This is your goal in the first week of your new project. Don't simply choose the first design, the first platform, or the first algorithm that comes to mind. Challenge yourself to think of something better. Experiment. It takes time to discover the best tools for the job and the best way to apply those tools.
+
+Useful excercises:
+
+  * **Prototype your ideas.** Bring them into the real world. Iterating on a protoype is virtually free compared to trying to do the same thing once your ship is in the water.Build one to throw away. No amount of googling can substitute for first-hand experience. 
+  * **Conduct fire drills.** Break your software before your users do. Watermark your system's performance and reliability, and take a few minutes to consider (a) what simple adjustments you might make to raise that watermark, and (b) how you can design your system to make it as easy as possible to add capacity on the fly without having to swap out half the components in the heat of battle.
+  * **Bake monitoring into your service from the beginning.** These days, there are plenty of ways to quickly add monitoring to your daemons and databases. It doesn't take long to whip up a simple dashboard containing a few graphs and statistics. Such a dashboard helps you anticipate scaling problems before they turn into a crisis, and helps you gauge your success when you deploy optimizations. 
+
+You can't anticipate everything about how your cloud service or app will need to scale to meet demand. What you *can* do, however, is create a flexible architecture and educate yourself, such that you can rapidly diagnose system crashes and move quickly to resolve the root cause.
+
+-----------------
 
 3 versions of note
 plan up front
