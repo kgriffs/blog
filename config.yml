@@ -25,7 +25,7 @@ author: Kurt Griffiths
 # A description of your site to be used in header meta tags.
 description: The cloud movement significantly changes the nature of applications. Apps are no longer serfs hiding inside inpeneratable castles. You've now got to design connected agents, personal assistants, and social butterflies. And it all has to be elastic and scalable.
 # Used in the site feed.
-email:
+email: mail@kgriffs.com
 # Your site's subtitle.
 subtitle: Illustrated thoughts on cloud engineering and stuff | kgriffs
 # Your site's title.

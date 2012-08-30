@@ -14,6 +14,7 @@
         <li><a href="{{ get_url('index.html') }}">Blog</a></li>
         <li><a href="{{ get_url('archives/index.html') }}">Archives</a></li>
         {% if site.feed %}<li><a href="http://feeds.feedburner.com/FluffyWhiteStuff">Feed</a></li>{% endif %}
+        <li><a href="{{ get_url('/2012/08/14/a-first-cloud-blog-post.html') }}">About</a></li>
       </ul>
 
       {% if site.social.values()|sort(true)|first %}
