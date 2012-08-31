@@ -11,7 +11,7 @@
             </div>
             
             <div class="body">
-                <p>{% if post.excerpt %}{{ post.excerpt }}{% else %}{{ post.content }}{% endif %}</p>
+                <p>{% if post.summary %}{{ post.summary }}{% elif post.excerpt %}{{ post.excerpt }}{% else %}{{ post.content }}{% endif %}</p>
             </div>
             
             <div class="footer">
