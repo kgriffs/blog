@@ -30,7 +30,7 @@ def list_local_filenames(dir, base = ''):
 
   for dirpath, dirnames, filenames in os.walk(dir):
     for filename in filenames:
-      base = dirpath[dir_len + 1:] # +1 for path separator
+      base = dirpath[dir_len:]
 
       if not filename.startswith('.') and not base.startswith('.'):
         paths.append(os.path.join(base, filename) if base else filename)
@@ -51,6 +51,12 @@ for remote_name, remote_hash in remote_paths:
   elif remote_hash == hash(os.path.join(source_path, remote_name)):
     print 'To skip: ' + remote_name
     remote_paths_to_skip.append(remote_name)
+  else: 
+    print 'To upload: ' + remote_name
+
+for local_name in local_paths:
+  if local_name not in remote_paths_to_skip:
+    print 'To upload: ' + local_name
 
 for local_name in local_paths:
   if local_name in remote_paths_to_skip:

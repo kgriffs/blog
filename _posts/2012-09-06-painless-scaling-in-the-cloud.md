@@ -2,6 +2,7 @@
 layout: post.html
 title: Painless Scaling in the Cloud
 summary: Scaling your web app or service is a nice problem to have, but just because you may never need to do it, doesn't mean you shouldn't plan for it.
+id: 66447D28-EDFC-11E1-A556-6E52F4FE7012
 ---
 
 Scaling your app or service is often described by startup veterans as "a nice problem to have," something that "you should worry about later, if/when your app takes off". People love to hear epic war stories about just-in-time scaling; how suddenly widg.it went viral at 3 am on a Sunday morning, and the team only had a few hours to rewrite half their system, switch data centers, and shard their database to stop it from crashing every ten minutes.
@@ -92,6 +93,6 @@ You don't need to invest a lot of time and money setting up your CI pipeline. St
 
 By spending a little more time planning ahead, and by putting in place a trustworthy continuous integration and deployment pipeline, you have a good chance at avoiding sleepless nights and shattered relationships when your app blows up&mdash;and I sincerely hope it does.
 
-After all, that is a nice problem to have.
+After all, that's a nice problem to have.
 
 @kgriffs
