@@ -1,0 +1,3 @@
+_http-way.md
+
+Simple, DRY, readable, not as efficient, optimize for programmer productivity...
