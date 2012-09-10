@@ -1,7 +1,7 @@
 ---
 layout: post.html
-title: Cloud Watch, Issue &#35;2
-summary: Learn about wolf-fence debugging, hacking corporate culture, lessons learned from developing StarCraft, and more.
+title: Cloud Watch, Issue &#35;2 - A very ASCII Post
+summary: ASCII Visio, wolf-fence debugging, hacking corporate culture, lessons learned from developing StarCraft, and more.
 tags: [News]
 id: 0F76E416-FB78-11E1-BDA0-80A0F4FE7011
 ---
@@ -10,7 +10,31 @@ id: 0F76E416-FB78-11E1-BDA0-80A0F4FE7011
 
 # Tools #
 
-**[Wolf-Fence Debugging with Git][bisect]**. Wolf-fence debugging uses divide-and-conquer to eliminate possible locations of bugs in your code. This is a particularly good technique for tracking down sneaky memory bugs and race conditions. Check out git-bisect for a way to use wolf-fence debugging to quickly home in on a commits in sheep's clothing.
+```
++--------------------------+---------------------------+
+|                          |                           |
+|                          |                           |
+|                          |                           |
+|                          |                           |
+|                          +-------+-----+-------------+
+|                          |  x x  |     |             |
+|                          | xxxxx |     |             |
+|                          |  xxx  |     |             |
+|                          |   x   |     |             |
++--------------------------+-------+-----+-------------+
+|                                                      |
+|                                                      |
+|                                                      |
+|                                                      |
+|                                                      |
+|                                                      |
+|                                                      |
+|                                                      |
+|                                                      |
++------------------------------------------------------+
+````
+
+**[Wolf-fence Debugging with Git][bisect]**. Wolf-fence debugging uses divide-and-conquer to eliminate possible locations of bugs in your code. This is a particularly good technique for tracking down sneaky memory bugs and race conditions. Check out git-bisect for a way to use wolf-fence debugging to quickly home in on a commits in sheep's clothing.
 
 **[Retro Visio][ascii]**. Asciiflow is a fun alternative to Visio, perfect for adding an artistic touch to README files, tech talks, and your favorite BBS.
 
@@ -21,6 +45,13 @@ id: 0F76E416-FB78-11E1-BDA0-80A0F4FE7011
 [ninja]: http://martine.github.com/ninja/
 
 # DevOps
+
+```
+> move the web forward
+No way. Move it yourself.
+> sudo move the web forward
+OK
+```
 
 **[Hack Your Corporate Culture][hack]**. Getting to web-scale requires a particular kind of tech culture. Jesse Robbins of Amazon and Opscode fame gives some pragmatic tips at Velocity 2012 on how to create a culture of technical excellence.
 
@@ -37,7 +68,23 @@ TL;DW
 [hack]: http://www.youtube.com/watch?v=OU8ihx3nT6I
 [tls]: http://journal.paul.querna.org/articles/2012/09/07/adoption-of-tls-extensions/
 
-# NoSQL # #
+# NoSQL #
+
+```
++-------------+
+|             |
+|             |
+|             |
+|             |
++-------------+
+|~~~~~~~~~~~~~|
+|~~~~ Big ~~~~|
+|~~~~ Data ~~~|
+|~~~~~~~~~~~~~|
++-------------+
+
+Half full, or half empty?
+```
 
 **[Secure Your Big Data with Accumulo][accumulo]**. Developed by the NSA then open-sourced about a year ago, Accumulo is unique in that it offers cell-level security, providing a more fine-grained approach to complying with regulations such as HIPPA. Recently, a startup called Sqrrl announced their plans to commercialize Accumulo. From the README:
 
@@ -49,13 +96,18 @@ TL;DW
 [mongo22]:http://docs.mongodb.org/manual/release-notes/2.2/
 [mongoperf]: http://blog.serverdensity.com/goodbye-global-lock-mongodb-2-0-vs-2-2/
 
-# Hackers at Work #
+# Words of Wisdom #
 
-**[What's the author of *Modern C++ Design* doing at Facebook][alexandrescu]**? This post was from this past January, but was cool enough that I wanted to still include it. Read Andrei's thoughts on machine learning and languages such as PHP, C++, and (my old friend) D.
+```
+DOS/4GW Protected Mode Run-time  Version 1.97
+Copyright (c) Rational Systems, Inc. 1990-1994
+```
+
+**[On the Art and Science of Software][carmack]**. Legendary game engine hacker John Carmack discusses a recent realization of his, that writing software is a lot less about computer science, and a lot more about social engineering.
 
 **[Lessons Learned on the Road to StarCraft][sc]**. Patrick Wyatt, long-time game developer, shares anecdotes from his time working on the genre-defining StarCraft game at Blizzard.
 
-**[The Art and Science of Software Engineering][carmack]**. Legendary game engine hacker John Carmack discusses a recent realization of his, that writing software is a lot less about computer science, and a lot more about social engineering.
+**[What's the author of *Modern C++ Design* doing at Facebook][alexandrescu]**? This post was from this past January, but was cool enough that I wanted to still include it. Read Andrei's thoughts on machine learning and languages such as PHP, C++, and (my old friend) D.
 
 [sc]: http://www.codeofhonor.com/blog/tough-times-on-the-road-to-starcraft
 [carmack]: http://blogs.uw.edu/ajko/2012/08/22/john-carmack-discusses-the-art-and-science-of-software-engineering
