@@ -27,6 +27,8 @@ def list_local_filenames(dir, base = ''):
   paths = []
 
   dir_len = len(dir)
+  if dir[-1] != os.sep:
+    dir_len += 1
 
   for dirpath, dirnames, filenames in os.walk(dir):
     for filename in filenames:
@@ -64,9 +66,9 @@ for local_name in local_paths:
     continue
 
   print 'Uploading ' + local_name
-  obj = container.create_object(local_name)
-  obj.load_from_filename(os.path.join(source_path, local_name))
+  #obj = container.create_object(local_name)
+  #obj.load_from_filename(os.path.join(source_path, local_name))
 
 for path_to_delete in remote_paths_to_delete:
   print 'Deleting ' + path_to_delete
-  container.delete_object(path_to_delete)
+  #container.delete_object(path_to_delete)
