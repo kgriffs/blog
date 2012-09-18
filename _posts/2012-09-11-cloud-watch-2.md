@@ -1,6 +1,6 @@
 ---
 layout: post.html
-title: Cloud Watch, Issue &#35;2 - A very ASCII Post
+title: Cloud Watch, Issue 2 - A very ASCII Post
 summary: ASCII Visio, wolf-fence debugging, hacking corporate culture, lessons learned from developing StarCraft, and more.
 tags: [News]
 id: 0F76E416-FB78-11E1-BDA0-80A0F4FE7011
