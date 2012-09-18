@@ -5,3 +5,5 @@ _atom-is-not-a-general-format.md
 
 odata
 atompub
+
+Atom seems to be misused in so many ways these days. Just because you *can* syndicate anything with it, doesn't mean you *should*.
