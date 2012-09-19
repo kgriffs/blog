@@ -26,7 +26,7 @@ Async I/O works in a similar way:
 1. Kernel posts an event to the I/O handle whenever something interesting happens.
 1. Thread grabs each event, processing it and checking for more events until the requested operation is complete.
 
-Here's an illustration to help visulize what's happening:
+Here's an illustration to help visualize what's happening:
 
 <img class="center" src="/assets/images/async-io.png" alt="Async I/O - Illustration" />
 
@@ -66,9 +66,9 @@ If your app spends most<sup><a name="id-3" href="#id-3.ftn">3</a></sup> of its t
 
 Some apps, on the other hand, spend most of their time running algorithms and crunching numbers (e.g., audio processing, data categorization, scientific computing, etc.). When a task is [CPU bound][cpu-bound], async I/O certainly won't buy you anything, and is likely to make things worse. If a thread is spending most of its time crunching data, you might as well use blocking-IO and avoid paying any per-request performance tax<sup><a name="id-5" href="#id-5.ftn">5</a></sup>. 
 
-# Tradeoffs #
+# Trade-offs #
 
-Hardware limits us on what we can achieve using blocking I/O in a single thread of execution, so we have to invent ways of simulating concurrent execution. No approach is perfect; it's important to realize this, and research the tradeoffs involved in each approach, so that we can make better design decisions.
+Hardware limits us on what we can achieve using blocking I/O in a single thread of execution, so we have to invent ways of simulating concurrent execution. No approach is perfect; it's important to realize this, and research the trade-offs involved in each approach, so that we can make better design decisions.
 
 In other words, use the best tool for the job. :D 
 
@@ -80,7 +80,7 @@ In other words, use the best tool for the job. :D
     thread when data is ready or more data is required. 
   </li>
   <li>
-    <sup><a name="id-2.ftn" href="#id-2">2</a></sup> Multiprocessing is a common alternative to multithreading on POSIX systems.  
+    <sup><a name="id-2.ftn" href="#id-2">2</a></sup> Multiprocessing is a common alternative to multi-threading on POSIX systems.  
   </li>
   <li>
     <sup><a name="id-3.ftn" href="#id-3">4</a></sup> All applications require CPU time, which is why it can be helpful to run multiple threads (or processes) if you've got the cores.
