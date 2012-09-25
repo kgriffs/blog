@@ -1,12 +1,14 @@
 ---
 layout: post.html
-title: Cloud Watch, Issue 2 - A very ASCII Post
+title: Cloud Watch, Issue 2 - Peace, Love, ASCII 
 summary: ASCII Visio, wolf-fence debugging, hacking corporate culture, lessons learned from developing StarCraft, and more.
 tags: [News]
 id: 0F76E416-FB78-11E1-BDA0-80A0F4FE7011
 ---
 
-*Cloud Watch is a semi-regular newsletter showcasing recent posts on software and cloud engineering, gathered from around the intertubes.*
+ASCII Visio, wolf-fence debugging, hacking corporate culture, lessons learned from developing StarCraft, and other useful links.
+
+*Cloud Watch is a little newsletter of mine that showcases relevant posts on software and cloud engineering, lovingly collected in one place for your viewing pleasure.*
 
 # Tools #
 

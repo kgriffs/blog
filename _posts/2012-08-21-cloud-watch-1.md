@@ -1,6 +1,6 @@
 ---
 layout: post.html
-title: Cloud Watch, Issue 1
+title: Cloud Watch, Issue 1 - Food for Thought
 summary: Occasionally I'll share a "Cloud Watch" newsletter of sorts, with interesting links that I've come across. Here's the first issue.
 tags: [News]
 id: 66447D28-EDFC-11E1-A556-6E52F4FE7011

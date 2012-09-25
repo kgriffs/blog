@@ -1,7 +1,8 @@
 ---
 layout: post.html
 title: How Async I/O Works - And Sometimes Doesn't
-summary: Async I/O can be your best friend, or your worst enemy. The devils in the details.  
+summary: Async I/O can be your best friend, or your worst enemy. The devil's in the details.  
+tags: [Essays]
 id: 760C497E-FDE3-11E1-A940-7C49F4FE7011
 ---
 
