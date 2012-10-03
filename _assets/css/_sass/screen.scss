@@ -310,7 +310,7 @@ i, em {
     font: {
       family: 'Londrina Sketch', Arial;
       size: 62px;
-      weight: bold; }; }
+      weight: normal; }; }
   h2 {
     border-bottom-width: 0px;
     color: $faded-color;
@@ -385,7 +385,8 @@ div.item {
       font: {
         family: 'Chelsea Market', Arial;
         size: 24px;
-        style: normal; } }
+        style: normal; 
+        weight: normal; } }
     h2 {
       border-bottom-width: 0px;
       color: $faded-color;

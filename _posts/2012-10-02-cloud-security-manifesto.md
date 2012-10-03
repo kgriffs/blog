@@ -14,7 +14,7 @@ First, we need to promote **Computer Security** as a first-class citizen, joinin
 
 Second, project managers should ensure that **security is never compromised** in deference to shipping new features. Rock-solid security *is* a feature. Your customer's trust is something you can't afford to loose. In fact, shipping security as a feature of your product is a great way to differentiate your company. If I have to choose between Cloud App X and Cloud App Y, I'm probably going to choose the one built by a team that takes my privacy seriously. 
 
-In order to grow the cloud services market, **we must build a cloud that people can trust**. It's not just about avoiding the inevitable PR and legal nightmares that spring from major security breaches. It's about embracing and nurturing the implicit trust that people put in our code, in our networks, and in our profession. 
+In order to grow the cloud services market, **we must build a cloud that people trust**. It's not just about avoiding the inevitable PR and legal nightmares that spring from major security breaches. It's about embracing and nurturing the implicit trust that people put in our code, in our networks, and in our profession. 
 
 After all, they deserve nothing less.
 

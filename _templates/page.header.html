@@ -4,7 +4,8 @@
 <meta name="description" content="{{ post.excerpt or post.summary if post else site.description }}">
 <meta name="generator" content="mynt v{{ site.version }}">
 
-<link rel="shortcut icon" href="{{ get_asset('images/favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ get_asset('images/favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ get_asset('images/favicon.gif') }}" type="image/gif">
 
 {% if site.feed %}<link rel="alternate" href="{{ get_url('feed.xml') }}" type="application/atom+xml">{% endif %}
 

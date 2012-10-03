@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 mynt gen -f ../blog-generated/
+cp _assets/images/favicon.* ../blog-generated
 cd _assets/css/_sass/
 compass compile
