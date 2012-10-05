@@ -24,13 +24,20 @@ Cultivating personal leadership and a habit of innovation is essential for any s
 
 # Innovation #
 
-**[Back to the Future][speech]** No one is more familiar with making innovation a habit than Steve Jobs. Check out this speech from 1983, where he foreshadowed today's connected, mobile world. Force yourself to look past the constraints of today and discover what is possible tomorrow.
+**[Back to the Future][speech]** When I think about innovation, I think about [Jacque Frescho][venus] and Steve Jobs. Check out Steve's speech from 1983, where he foreshadowed today's connected, mobile world. Force yourself to look past the constraints of today and discover what is possible tomorrow.
 
 **[The Patent Game][patents-1]**. Our current patent system in the U.S. is a goldmine for patent trolls. We need to fix it so that patents don't hinder innovation, but encourage it&mdash;as originally intended. (See also Judge Richard Posner's [thoughts on the matter][patents-2].)
 
-**[Better Tools][typescript]**. Don't be afraid to be a creator. My Grandfather was a carpenter. If he didn't have the right tool for the job, he made one. If the tool he had didn't work well enough, he rolled up his sleeves and fixed it. JavaScript is one of those things that needs to be fixed.
+**[Better Tools][typescript]**. Don't be afraid to be a creator. My Grandfather was a carpenter. If he didn't have the right tool for the job, he made one. If the tool he had didn't work well enough, he rolled up his sleeves and fixed it. JavaScript is one of those things that [needs to be fixed][typescript]. Imagine what you could build with better tools.
 
+[venus]: http://www.thevenusproject.com/
 [speech]: http://lifelibertytech.com/2012/10/02/the-lost-steve-jobs-speech-from-1983-foreshadowing-wireless-networking-the-ipad-and-the-app-store/
 [patents-1]:http://arstechnica.com/tech-policy/2012/09/how-a-rogue-appeals-court-wrecked-the-patent-system/
 [patents-2]:http://arstechnica.com/tech-policy/2012/10/judge-decries-excessive-copyright-and-software-patent-protections/
 [typescript]: http://www.typescriptlang.org/
+
+# Motivation #
+
+
+http://www.ted.com/talks/dan_pink_on_motivation.html
+(design talk from TED)
