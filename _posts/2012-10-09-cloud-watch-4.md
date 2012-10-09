@@ -2,6 +2,7 @@
 layout: post.html
 title: Cloud Watch, Issue 4 - Staying Relevant
 tags: [News]
+summary: Cultivating personal leadership and a habit of innovation is essential for any software team wanting to remain relevant.
 id: cabd8df6-1199-11e2-957b-46cedd6a022f
 ---
 
@@ -11,7 +12,7 @@ Cultivating personal leadership and a habit of innovation is essential for any s
 
 # Innovation #
 
-**[Back][speech] to the [Future][venus]**. When I think about innovation, I think about Steve Jobs and Jacque Frescho<sup><a name="id-23" href="#id-3.ftn">3</a></sup>. Check out Steve's speech from 1983, where he foreshadowed today's connected, mobile world. Next, head on over to Mr. Frescho's site. His Venus Project will blow your mind. Follow the example of these two luminaries, and force yourself to look past today's constraints to discover tomorrow's possibilities.
+**[Back][speech] to the [Future][venus]**. When I think about innovation, I think about Steve Jobs and Jacque Frescho<sup><a name="id-23" href="#id-3.ftn">3</a></sup>. Check out Steve's speech from 1983, where he foreshadowed today's connected, mobile world. Next, head on over to Mr. Frescho's site. His Venus Project will blow your mind. These two luminaries changed the world by looking past today's constraints to discover tomorrow's possibilities.
 
 **[The Patent Game][patents-1]**. Our current patent system in the U.S. is a goldmine for patent trolls. We need to fix our system so that patents don't hinder innovation, but encourage it&mdash;as originally intended. Rackspace [has a fix][troll-pay] in mind. What else can we do? (See also Judge Richard Posner's [thoughts on the matter][patents-2].)
 
