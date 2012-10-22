@@ -3,7 +3,8 @@ cloudera courses
 
 Hashing is a good tool to start hardening your cloud product 
 
-
+http://www.unixwiz.net/techtips/iguide-crypto-hashes.html
+http://www.mscs.dal.ca/~selinger/md5collision/
 
 You don't have to be a Bruce Schnier to
 

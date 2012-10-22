@@ -84,10 +84,10 @@ In other words, use the best tool for the job. :D
     <sup><a name="id-2.ftn" href="#id-2">2</a></sup> Multiprocessing is a common alternative to multi-threading on POSIX systems.  
   </li>
   <li>
-    <sup><a name="id-3.ftn" href="#id-3">4</a></sup> All applications require CPU time, which is why it can be helpful to run multiple threads (or processes) if you've got the cores.
+    <sup><a name="id-3.ftn" href="#id-3">3</a></sup> All applications require CPU time, which is why it can be helpful to run multiple threads (or processes) if you've got the cores.
   </li>
   <li>
-    <sup><a name="id-4.ftn" href="#id-4">3</a></sup> Running only one thread or process per CPU minimizes expensive context-switching.
+    <sup><a name="id-4.ftn" href="#id-4">4</a></sup> Running only one thread or process per CPU minimizes expensive context-switching.
   </li>
   <li>
     <sup><a name="id-5.ftn" href="#id-5">5</a></sup> For this reason, servers that need to perform non-trivial processing on a request should hand off that processing to a worker pool.

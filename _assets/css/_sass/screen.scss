@@ -365,6 +365,7 @@ span.mono {
   padding-bottom: 1px;
 }
 
+
 div.item {
   img {
     float:right;
@@ -378,6 +379,10 @@ div.item {
     float: none;
     display: block;
     margin: 0px auto 0px auto;
+  }
+  img.block {
+    float: none;
+    display: block;
   }
 
   & + & {
