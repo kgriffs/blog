@@ -1,8 +1,8 @@
 ---
 layout: post.html
-title: Python vs. Node vs. PyPy in the Cloud
+title: Python vs. Node vs. PyPy
 summary: After playing around with recent versions of PyPy and Node.js, I've discovered some things that may surprise you.
-tags: [Research]
+tags: [Science Projects]
 id: A60C497E-FD13-11E1-B940-7C49F4FE7012
 ---
 
@@ -14,7 +14,7 @@ In this particular post, I'd like to share my discoveries concerning Python vs. 
 
 ## Testing Methodology ##
 
-For each test, I executed 5,000 GETs with ApacheBench (ab). I ran each benchmark 3 times from localhost<sup><a name="id-2" href="#id-2.ftn">2</a></sup> on a 4-core Rackspace Cloud Server<sup><a name="id-3" href="#id-3.ftn">3</a></sup>, retaining only the numbers for the most performant iteration<sup><a name="id-4" href="#id-4.ftn">4</a></sup>.
+For each test, I executed 5,000 GETs with ApacheBench (ab). I ran each benchmark 3 times from localhost<sup><a name="id-2" href="#id-2.ftn">2</a></sup> on a 4-core Rackspace Cloud Server<sup><a name="id-3" href="#id-3.ftn">3</a></sup>, retaining only the numbers for the best-performing iteration<sup><a name="id-4" href="#id-4.ftn">4</a></sup>.
 
 All stacks were configured to spawn 4 worker processes, backed by a single, local mongod<sup><a name="id-5" href="#id-5.ftn">5</a></sup> for storage. The DB was primed so that each GET resulted in a non-empty response body of about 420 bytes<sup><a name="id-6" href="#id-6.ftn">6</a></sup>.
 
@@ -32,10 +32,10 @@ Python v2.7 + Gunicorn v0.14.6 + Eventlet v0.9.17 + Rawr
 PyPy 1.8 + Gunicorn v0.14.6 + Rawr
 
 **PyPy (Tornado Worker)** 
-Gunicorn v0.14.6 + Tornado<sup><a name="id-9" href="#id-9.ftn">9</a></sup>  (footnote - eventlet not supported by PyPy) + Rawr (footnote)
+Gunicorn v0.14.6 + Tornado<sup><a name="id-9" href="#id-9.ftn">9</a></sup> + Rawr
 
 **Node v0.8.11** 
-Node v0.8.11 + Cluster + Connect v2.6.0<sup><a name="id-10" href="#id-10.ftn">10</a></sup> (footnote - why chose)
+Node v0.8.11 + Cluster + Connect<sup><a name="id-10" href="#id-10.ftn">10</a></sup> v2.6.0
 
 ## Throughput Benchmarks ##
 
@@ -43,25 +43,27 @@ In terms of throughput, Node.js is hard to beat. It's almost twice as fast as CP
 
 PyPy comes to the rescue, demonstrating the power of a good JIT compiler. The big surprise here is how well the PyPy/Sync workers perform. But there's more to the story... 
 
-Not shown in the graph (below) are a few informal tests I ran to see what would happen at even higher levels of concurrency. At 5,000 concurrent requests, PyPy/Tornado and Node.js exhibited the best performance at ~4100 req/sec, followed closely by PyPy/Sync at ~3800 req/sec, then CPython/Sync at ~2200 req/sec. I couldn't get CPython/Eventlet to finish all 5,000 requests without socket errors.
+Not shown in the graph (below) are a few informal tests I ran to see what would happen at even higher levels of concurrency. At 5,000 concurrent requests, PyPy/Tornado and Node.js exhibited the best performance at ~4100 req/sec, followed closely by PyPy/Sync at ~3800 req/sec, then CPython/Sync at ~2200 req/sec. I couldn't get CPython/Eventlet to finish all 5,000 requests without ab giving up due to socket errors.
 
 <img class="block" src="/assets/images/node-bench/throughput.png" alt="Python vs. PyPy vs. Node.js - Throughput Benchmark" />
 
 ## Latency Benchmarks ##
 
-CPython/Eventlet demonstrated a lot of per-request overhead, turning around requests about 30% slower (in the worst case) than non-evented CPython workers. Node, PyPy/Sync, and PyPy/Tornado showed similar latency in my tests.
+CPython/Eventlet demonstrates high per-request overhead, turning around requests about 30% slower (in the worst case) than non-evented CPython workers. 
 
 <img class="block" src="/assets/images/node-bench/latency.png" alt="Python vs. PyPy vs. Node.js - Latency Benchmark" />
 
 ## Stability Benchmarks ##
 
-With a high number of concurrent connections, PyPy's performance was most consistent across all 5,000 requests, followed closely by CPython/Sync. Node was more inconsistent than I expected, given its finely-tuned I/O subsystem.
+With a high number of concurrent connections, PyPy's performance is very consistent. CPython/Sync also does well in this regard. 
+
+Node is less consistent than I expected, given its finely-tuned event loop. It's possible that node-mongodb-native is to blame&mdash;but that's pure conjecture on my part.
 
 <img class="block" src="/assets/images/node-bench/stability.png" alt="Python vs. PyPy vs. Node.js - Stability Benchmark" />
 
 ## Conclusions ##
 
-Node's [asynchronous](/2012/09/18/demystifying-async-io.html) subsystem incurrs far less overhead than Eventlet, and is slightly faster than Tornado running under PyPy. However, it appears that for moderate numbers of concurrent requests, the overhead inherent in any async framework simply isn't worthwhile (footnote - sync only behind evented -slowloris). I.e., async only makes sense in the context of serving several thousand concurrent requests per second.
+Node's [asynchronous](/2012/09/18/demystifying-async-io.html) subsystem incurs far less overhead than Eventlet, and is slightly faster than Tornado running under PyPy. However, it appears that for moderate numbers of concurrent requests, the overhead inherent in any async framework simply isn't worthwhile<sup><a name="id-11" href="#id-11.ftn">11</a></sup>. I.e., async only makes sense in the context of serving several thousand concurrent requests per second.
 
 CPython's lackluster performance makes a strong case for migrating to PyPy for existing projects, and for considering Node.js as a viable alternative to Python for new projects. That being said, PyPy is not nearly as battle-tested as CPython; caveat emptor!
 
@@ -79,27 +81,26 @@ CPython's lackluster performance makes a strong case for migrating to PyPy for e
     <sup><a name="id-4.ftn" href="#id-4">4</a></sup> What can I say? I'm an insufferable optimist.
   </li>
   <li>
-    <sup><a name="id-5.ftn" href="#id-5">5</a></sup> A lot of FUD has gone around re MongoDB. I'm convinced that most bad experiences with Mongo are due to one or more of the following: (1) Developers conciously (or subconciously) expecting MongoDB to act like an RDBMS, (2) the perpetuation of the myth that MongoDB is not durable, and (3) trying to run MongoDB on servers with slow disks and/or insufficient RAM.
+    <sup><a name="id-5.ftn" href="#id-5">5</a></sup> A lot of FUD has gone around re MongoDB. I'm convinced that most bad experiences with Mongo are due to one or more of the following: (1) Developers consciously (or subconsciously) expecting MongoDB to act like an RDBMS, (2) the perpetuation of the myth that MongoDB is not durable, and (3) trying to run MongoDB on servers with slow disks and/or insufficient RAM.
   </li>
   <li>
     <sup><a name="id-6.ftn" href="#id-6">6</a></sup> The response body was chosen as an example of a typical JSON document that might be returned from the message bus service.
   </li>
   <li>
-    <sup><a name="id-7.ftn" href="#id-7">7</a></sup> Gunicorn is a very fast WSGI worker proxy, similar to Node's Cluster module. Gunicorn supports running various worker types, including basic syncronous workers, Eventlet workers, and Tornado workers.
+    <sup><a name="id-7.ftn" href="#id-7">7</a></sup> Gunicorn is a very fast WSGI worker proxy, similar to Node's Cluster module. Gunicorn supports running various worker types, including basic synchronous workers, Eventlet workers, and Tornado workers.
   </li>
   <li>
-    <sup><a name="id-8.ftn" href="#id-8">8</a></sup> Lispem.
+    <sup><a name="id-8.ftn" href="#id-8">8</a></sup> Based on extensive benchmarking, I ended up writing a custom micro web-services framework. Protip: Don't use webob for parsing requests; it's dog-slow.
   </li>
   <li>
-    <sup><a name="id-9.ftn" href="#id-9">9</a></sup> Lispem.
+    <sup><a name="id-9.ftn" href="#id-9">9</a></sup> Used in lieu of Eventlet, since Eventlet was extremely slow under PyPy in my  benchmarks.
   </li>
   <li>
-    <sup><a name="id-10.ftn" href="#id-10">10</a></sup> Lispem.
+    <sup><a name="id-10.ftn" href="#id-10">10</a></sup> Connect adds virtually no overhead; I wanted to use a framework that was fast, yet mainstream.
+  </li>
+  <li>
+    <sup><a name="id-11.ftn" href="#id-11">11</a></sup> Warning: Don't expose sync processes to the Internet; run behind a non-blocking server such as Nginx to guard against not only malicious attacks (ala Slowloris), but also against the Thundering Heard.
   </li>
 </ul>
 
-based on extensive benchmarking, i ended up writing a custom micro web-services framework. Don't use webob for parsing requests - too slow.
-
-sync only behind evented -slowloris, 
-=
 
