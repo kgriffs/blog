@@ -99,7 +99,7 @@ CPython's lackluster performance makes a strong case for migrating to PyPy for e
     <sup><a name="id-10.ftn" href="#id-10">10</a></sup> Connect adds virtually no overhead; I wanted to use a framework that was fast, yet mainstream.
   </li>
   <li>
-    <sup><a name="id-11.ftn" href="#id-11">11</a></sup> Warning: Don't expose sync processes to the Internet; run behind a non-blocking server such as Nginx to guard against not only malicious attacks (ala Slowloris), but also against the Thundering Heard.
+    <sup><a name="id-11.ftn" href="#id-11">11</a></sup> Warning: Don't expose sync processes to the Internet; run behind a non-blocking server such as Nginx to guard against not only malicious attacks (ala Slowloris), but also against the Thundering Herd.
   </li>
 </ul>
 

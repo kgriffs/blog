@@ -8,6 +8,10 @@ source_path = sys.argv[1]
 
 pwd = keyring.get_password('Cloud Files', 'kgriffs')
 
+if not pwd:
+  print "No dice"
+  sys.exit()
+
 connection = cloudfiles.get_connection('kgriffs', pwd)
 container = connection.get_container('blog')
 
