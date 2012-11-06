@@ -51,7 +51,7 @@ sup {
   line-height: 0.5em;
 }
 
-blockquote, dl, ol, p, pre, table, ul {
+blockquote, dl, ol, p, pre, ul {
   margin: 15px 0px 15px 0px; }
 
 blockquote {
@@ -186,6 +186,11 @@ pre {
     @include box-shadow(none);
     color: inherit; } }
 
+td, th {
+  padding: 4px
+}
+
+/*
 table {
   border: 1px solid $separator-color;
   border-bottom-width: 0px;
@@ -193,7 +198,7 @@ table {
   @include box-shadow(0px 0px 0px 2px #f7f7f7); }
 
 td, th {
-  padding: 10px;
+  padding: 2px;
   border-bottom: 1px solid $separator-color;
   border-left: 1px dotted $separator-color;
   &:first-child {
@@ -203,9 +208,10 @@ td, th {
   & > :last-child {
     margin-bottom: 0px; }
   & > * {
-    margin: 10px 0px 10px 0px; }
-  tbody tr:nth-child(2n) & {
-    background-color: #f2f2f2; } }
+    margin: 5px 0px 5px 0px; }
+  tbody tr:nth-child(2n) & { 
+    background-color: #f2f2f2; }
+}
 
 th {
   font-weight: bold;
@@ -214,6 +220,7 @@ th {
     text-align: right; }
   thead & {
     background-color: #f2f2f2; } }
+*/
 
 ul {
   &.unstyled {
@@ -387,8 +394,9 @@ div.item {
 
   div.flot {
     width:100%;
-    height:300px;
+    height:250px;
   }
+
 
   & + & {
     div.header h1 {
