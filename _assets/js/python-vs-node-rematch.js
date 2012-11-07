@@ -71,34 +71,30 @@ $(function () {
       }
     };
 
-    var sanity_ratios = {
-      autobench: {
-        data: [
-          [0, (max_rps.autobench.wsgiref_pypy / max_rps.autobench.wsgiref)],
-          [1, (max_rps.autobench.wsgiref / max_rps.autobench.gevent)],
-          [2, (max_rps.autobench.gevent / max_rps.autobench.nodejs)]
-        ]
-      },
-      weighttp: {
-        data: [
-          [0, (max_rps.weighttp.wsgiref_pypy / max_rps.weighttp.wsgiref)],
-          [1, (max_rps.weighttp.wsgiref / max_rps.weighttp.gevent)],
-          [2, (max_rps.weighttp.gevent / max_rps.weighttp.nodejs)]
-        ]
-      }
+    var sanity_series = {
+      data: [
+          [0, Math.abs((max_rps.autobench.wsgiref_pypy / max_rps.autobench.wsgiref) - (max_rps.weighttp.wsgiref_pypy / max_rps.weighttp.wsgiref)) ],
+          [1, Math.abs((max_rps.autobench.wsgiref / max_rps.autobench.gevent) - (max_rps.weighttp.wsgiref / max_rps.weighttp.gevent))],
+          [2, Math.abs((max_rps.autobench.gevent / max_rps.autobench.nodejs) - (max_rps.weighttp.gevent / max_rps.weighttp.nodejs))]
+      ]
     };
 
     var sanity_options = {
-      bars: { show: true },
+      bars: { show: true, align: 'center', barWidth: 0.7 },
       lines: { show: false },
       xaxis: {
-        ticks: [[0, 'WsgiRef-PyPy: WsgiRef'], [1, 'WsgiRef : Gevent'], [2, 'Gevent : Node.js']]
+        min: -1,
+        max: 3,
+        ticks: [
+          [0, 's1'], [1, 's2'], [2, 's3']
+        ]
       }
     }
+
   
     // Gevent vs. Node.js
     $.plot($("#graph-1-rps"), [ data.rps.gevent, data.rps.gevent_10, data.rps.nodejs, data.rps.nodejs_10 ], options);
-    $.plot($("#graph-6"), [ sanity_ratios.autobench, sanity_ratios.weighttp ], sanity_options);
+    $.plot($("#graph-6"), [ sanity_series ], sanity_options);
     $.plot($("#graph-1-rt"), [ data.rt.gevent, data.rt.gevent_10, data.rt.nodejs, data.rt.nodejs_10 ], options);
     $.plot($("#graph-1-errors"), [ data.errors.gevent, data.errors.gevent_10, data.errors.nodejs, data.errors.nodejs_10 ], options);
     $.plot($("#graph-1-stdev"), [ data.stdev.gevent, data.stdev.gevent_10, data.stdev.nodejs, data.stdev.nodejs_10 ], options);
