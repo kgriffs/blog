@@ -21,7 +21,12 @@
                 <id>{{ get_url(post.url, true) }}</id>
                 <updated>{{ post.timestamp|date('%Y-%m-%dT%H:%M:%SZ') }}</updated>
                 
-                {% if post.excerpt %}<summary type="html">{{ post.excerpt|absolutize|escape }}</summary>{% endif %}
+                {% if post.summary %}
+                    <summary type="html">{{ post.summary|absolutize|escape }}</summary>
+                {% elif post.excerpt %}
+                    <summary type="html">{{ post.excerpt|absolutize|escape }}</summary>
+                {% endif %}
+                
                 <content type="html">{{ post.content|absolutize|escape }}</content>
             </entry>
         {% endfor %}

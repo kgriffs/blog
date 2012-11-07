@@ -22,8 +22,8 @@ def parse_csv(filename, xcol, ycol):
     y_points = []
 
     for row in reader:
-      x_points.append(row[xcol])
-      y_points.append(row[ycol])
+      x_points.append(float(row[xcol]))
+      y_points.append(float(row[ycol]))
 
   return (x_points, y_points)
 
