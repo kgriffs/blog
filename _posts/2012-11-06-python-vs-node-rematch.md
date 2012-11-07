@@ -1,7 +1,7 @@
 ---
 layout: post.html
 title: Stand back... I'm going to try science!
-summary: Check out these results from a round of rigorous performance testing between Python and Node.js 
+summary: Check out these results from a round of rigorous performance testing comparing Python, PyPy and Node.js 
 tags: [Science Projects]
 id: D074292E-25AA-11E2-9238-0137128E45A1
 ---
