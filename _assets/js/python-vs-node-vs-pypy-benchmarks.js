@@ -113,8 +113,5 @@ $(function () {
     // Sync vs. Async
     $.plot($("#graph-5-rps"), [ data.rps.gevent, data.rps.wsgiref ], options);
     $.plot($("#graph-5-rt"), [ data.rt.gevent, data.rt.wsgiref ], options);
-    $.plot($("#graph-5-errors"), [ data.errors.gevent, data.errors.wsgiref ], options);
-
-    //$.plot($("#graph-6"), [[5, 43]], {series: { pie: { show: true }}})
-    
+    $.plot($("#graph-5-errors"), [ data.errors.gevent, data.errors.wsgiref ], options);    
 });
