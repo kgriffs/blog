@@ -22,7 +22,7 @@ In this post, I'd like to share my results from a second round of more rigorous 
 
 Servers
 
-* [Rackspace Cloud Server](http://www.rackspace.com/cloud/public/servers/techdetails/)
+* [Rackspace Cloud](http://www.rackspace.com/cloud/public/servers/techdetails/)
   * 4GB RAM (8GB for weighttp host)
   * 2 vCPUs (4 vCPUs for weighttp host)
   * Next Generation Platform
@@ -37,7 +37,7 @@ Servers
 
 Network
 
-* 200 Mbps, per server
+* 200 Mbps, per server (300 Mbps for weighttp host)
 * Internal network interface (10.x.x.x)
 
 Python
@@ -89,9 +89,9 @@ For each test, I ran Autobench directly against a single message bus implementat
 
 I carried out all benchmarks against a single instance of each implementation; no clustering solutions were used (e.g., Gunicorn or Node's *Cluster* module). 
 
-For those implementations that supported HTTP 1.1 pipelining, I ran each test twice, once with 1 GET request per connection, and once again with 10 GET requests per connection. I denoted this in the results by appending the number of requests per connection to each implementation name, as in *Gevent (1)* and *Gevent (10)*. The results of the latter test may be especially instructive to website developers, since browsers typically perform several requests per connection.
+For those implementations that supported HTTP 1.1 keep-alive, I ran each test twice, once with 1 GET per connection, and once again with 10 GETs per connection. I denoted this in the results by appending the number of requests per connection to each implementation name, as in *Gevent (1)* and *Gevent (10)*. The results of the latter test may be especially instructive to website developers, since browsers typically perform several requests per connection.
 
-Each request to the message bus returned ~1K of events, encoded as JSON. I also tested *Gevent (10)* and *Node.js (10)* against a larger result set of ~64K events. Except where noted, only the results from testing the 1K data set are graphed.
+Each request to the message bus returned ~1K of events, encoded as JSON. I also tested *Gevent (10)* and *Node.js (10)* against a larger result set of ~64K events. Except where noted, only the results from testing the 1K data set appear in the graphs below.
 
 ## Gevent vs. Node.js ##
 
@@ -156,11 +156,11 @@ Admittedly, using -c in this way is a bit of a fudge, but it works out OK since 
 I compared my Autobench and weighttp results by examining the difference in ratios between succeeding implementations, in ascending order of maximum req/sec. In code:
 
 ```javascript
-    {
-      s1: Math.abs((max_rps.autobench.wsgiref_pypy / max_rps.autobench.wsgiref) - (max_rps.weighttp.wsgiref_pypy / max_rps.weighttp.wsgiref)),
-      s2: Math.abs((max_rps.autobench.wsgiref / max_rps.autobench.gevent) - (max_rps.weighttp.wsgiref / max_rps.weighttp.gevent)),
-      s3: Math.abs((max_rps.autobench.gevent / max_rps.autobench.nodejs) - (max_rps.weighttp.gevent / max_rps.weighttp.nodejs))
-    }
+{
+  s1: Math.abs((max_rps.autobench.wsgiref_pypy / max_rps.autobench.wsgiref) - (max_rps.weighttp.wsgiref_pypy / max_rps.weighttp.wsgiref)),
+  s2: Math.abs((max_rps.autobench.wsgiref / max_rps.autobench.gevent) - (max_rps.weighttp.wsgiref / max_rps.weighttp.gevent)),
+  s3: Math.abs((max_rps.autobench.gevent / max_rps.autobench.nodejs) - (max_rps.weighttp.gevent / max_rps.weighttp.nodejs))
+}
 ```
 
 As shown below, the differences were fairly minor, lending credibility to the Autobench results.
@@ -173,7 +173,7 @@ Node.js outperforms Gevent significantly in terms of latency and error rates for
 
 PyPy performs only slightly better than CPython when using Python's WSGI reference implementation. More work is needed to determine whether PyPy would perform similarly to Node.js given a compatible, non-blocking Python web framework.
 
-Finally, regarding blocking vs. non-blocking I/O frameworks, Gevent demonstrated a clear advantage over WsgiRef in terms of throughput and response time. However, Gevent goes to heck when super-saturated judging by the error rates demonstrated by my tests.
+Finally, regarding blocking vs. non-blocking I/O frameworks, Gevent ourperforms WsgiRef in terms of throughput and response time, although not by as much as one might expect.
 
 <script type="text/javascript" src="/assets/js/python-vs-node-rematch.js" />
 
