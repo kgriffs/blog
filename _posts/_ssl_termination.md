@@ -1,3 +1,10 @@
+On the other-other hand, this looks pretty sweet:
+
+http://www.rackspace.com/cloud/public/loadbalancers/technology/
+
+If needed, we could DNS-RR to scale out the SSL-ness.
+
+
 http://hezmatt.org/~mpalmer/blog/2011/06/28/ssl-session-caching-in-nginx.html
 http://vincent.bernat.im/en/blog/2011-ssl-benchmark.html
 https://github.com/bumptech/stud
