@@ -91,7 +91,7 @@ I carried out all benchmarks against a single instance of each implementation; n
 
 For those implementations that supported HTTP 1.1 keep-alive, I ran each test twice, once with 1 GET per connection, and once again with 10 GETs per connection. I denoted this in the results by appending the number of requests per connection to each implementation name, as in *Gevent (1)* and *Gevent (10)*. The results of the latter test may be especially instructive to website developers, since browsers typically perform several requests per connection.
 
-Each request to the message bus returned ~1K of events, encoded as JSON. I also tested *Gevent (10)* and *Node.js (10)* against a larger result set of ~64K events. Except where noted, only the results from testing the 1K data set appear in the graphs below<sup><a name="id-2" href="#id-2.ftn">2</a></sup>.
+Each request to the message bus returned ~1K of events, encoded as JSON. I also tested *Gevent (10)* and *Node.js (10)* against a larger result set of ~64K events, and against an empty result set (where the server responsed to every request with **204 No Content**. Except where noted, only the results from testing the 1K data set appear in the graphs below<sup><a name="id-2" href="#id-2.ftn">2</a></sup>.
 
 ## Gevent vs. Node.js ##
 
@@ -129,7 +129,7 @@ Response Time (ms)
 Errors
 <div id="graph-4-errors" class="flot"></div>
 
-## 1K JSON vs. 64K JSON ##
+## No Content vs. 1K JSON vs. 64K JSON ##
 
 Throughput (req/sec)
 <div id="graph-2-rps" class="flot"></div>
@@ -163,9 +163,11 @@ I compared my Autobench and weighttp results by examining the difference in rati
 }
 ```
 
-As shown below, the differences were fairly minor, lending credibility to the Autobench results. In other words, the relative performance between implementations, as reported by both tools, was similar enough to prove the validity of my req/sec benchmarks.
+Here's a graph showing the difference in relative req/sec reported by the two different tools, where s1, s2, and s3 refer to *Wsgiref-PyPy (1)*:*Wsgiref (1)*, *Wsgiref (1)*:*Gevent (1)*, and *Gevent (1)*:*Node.js (1)*, respectively.
 
-<div id="graph-6" class="flot-short"></div>
+<div id="graph-6" class="flot"></div>
+
+As you can see, the relative performance between implementations varied between 14% and 19%, which doesn't seem to indicate any anomalies between the results returned by Autobench and weighttp. 
 
 ## Q.E.D. ##
 
@@ -180,7 +182,7 @@ Finally, regarding blocking vs. non-blocking I/O frameworks, Gevent ourperforms 
     <sup><a name="id-1.ftn" href="#id-1">1</a></sup> The <a href="http://www.xenoclast.org/autobench/">Autobench website</a> has a good description of these and other options, and how they translate to Httperf parameters.
   </li>
   <li>
-    <sup><a name="id-2.ftn" href="#id-2">2</a></sup> To view all data points, see the <a href="/assets/js/python-vs-node-vs-pypy-benchmarks.js">JavaScript file</a> accompanying this post</a>.
+    <sup><a name="id-2.ftn" href="#id-2">2</a></sup> To view all data points, see the <a type="text/javascript" download="" href="/assets/js/python-vs-node-vs-pypy-benchmarks.js">JavaScript file</a> accompanying this post</a>.
   </li>
   <li>
     <sup><a name="id-3.ftn" href="#id-3">3</a></sup> See also the <a href="http://linux.die.net/man/1/httperf">Httperf man page</a>.
