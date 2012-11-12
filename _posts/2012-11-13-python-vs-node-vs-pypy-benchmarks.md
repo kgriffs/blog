@@ -8,9 +8,9 @@ id: D074292E-25AA-11E2-9238-0137128E45A1
 
 Most framework benchmarks posted on the web are derived from testing simple "hello world" apps. These results do not accurately depict real-world performance of these frameworks. On the other hand, taking a more instructive, rigorous approach requires comparing various implementations of a non-trivial application. This is Not Fun&trade;. Occasionally, however, the stars *do* align, and one has the chance to conduct such an experiment.
 
-Lately, I've been researching the various merits of Python vs. JavaScript (ala Node.js), in terms of developing web-scale cloud services. In the course of my work, I decided to port a highly-optimized, HTTP-based message bus (currently running in production) from Python to JavaScript. In a [previous post][last-post], I shared the results from some informal performance testing I did on the two implementations.  
+Lately, I've been researching the various merits of Python vs. JavaScript (ala Node.js), in terms of developing web-scale cloud services. In the course of my work, I ported an internal HTTP-based event queuing service (currently running in production) from Python to JavaScript. In a [previous post][last-post], I shared the results from some informal performance testing I did on the two implementations.  
 
-In this post, I'd like to share my results from a second round of more rigorous performance testing. In this round, the environment and variables under test were much more tightly controlled than before. In addition, I switched from using [ApacheBench][ab] to [Autobench][autobench]/[Httperf][httperf], in order to generate a higher and more consistent load against the server than ab could deliver. I then used [weighttp][weighttp] to verify my results. 
+In this post, I'd like to share my results from a second round of more rigorous performance testing, during which the test environment and variables were more tightly controlled. I switched from [ApacheBench][ab] to [Autobench][autobench]/[Httperf][httperf], in order to generate a more consistent, realistic load. I also used [weighttp][weighttp] to sanity-check my results. 
 
 [last-post]: /2012/10/23/python-vs-node-vs-pypy.html
 [autobench]: http://www.xenoclast.org/autobench/
@@ -22,7 +22,7 @@ In this post, I'd like to share my results from a second round of more rigorous 
 
 Servers
 
-* [Rackspace Cloud](http://www.rackspace.com/cloud/public/servers/techdetails/)
+* [Rackspace Cloud](http://www.rackspace.com/cloud/public/servers/techdetails/) Instances
   * 4GB RAM (8GB for the weighttp host)
   * 2 vCPUs (4 vCPUs for the weighttp host)
   * Next Generation Platform
@@ -85,13 +85,13 @@ Implementations
 
 As in my previous experiment, I benchmarked retrieving a fixed set of events from a message queuing service backed by MongoDB, with alternative service implementations in Python and JavaScript. Unfortunately, I was not able to directly compare PyPy to both CPython *and* Node.js, since Gevent is currently incompatible with PyPy, and I did not have the luxury of reimplementing the message bus prototype using, e.g., Tornado or Cyclone.
 
-For each test, I ran Autobench directly against a single message bus implementation. I set --min\_rate and --max\_rate<sup><a name="id-1" href="#id-1.ftn">1</a></sup> to 20 and 2000, respectively, in order to test a wide range of requests per second (represented by the x axis of the graphs below). 
+For each test, I ran Autobench directly against a single message bus implementation. I set *min\_rate* and *max\_rate*<sup><a name="id-1" href="#id-1.ftn">1</a></sup> to 20 and 2000, respectively, in order to test a wide range of requests per second (the x axis on the graphs below). 
 
 I carried out all benchmarks against a single instance of each implementation; no clustering or load-balancing solutions were used (i.e., HAProxy, Gunicorn, Node's *Cluster* module, etc.). 
 
-For those implementations that supported HTTP 1.1 keep-alive, I ran each test twice, once with 1 GET per connection, and once again with 10 GETs per connection. I denoted this in the results by appending the number of requests per connection to each implementation name, as in *Gevent (1)* and *Gevent (10)*. The results of the latter test may be especially instructive to website developers, since browsers typically perform several requests per connection.
+For those implementations that supported HTTP 1.1[fn], I ran each test twice, once with 1 GET per connection, and once again with 10 GETs per connection. I denoted this in the results by appending the number of requests per connection to each implementation name, as in *Gevent (1)* and *Gevent (10)*. The results of the latter test may be especially instructive to website developers, since browsers typically perform several requests per connection.
 
-Each request to the message bus returned ~1K of events, encoded as JSON. I also tested *Gevent (10)* and *Node.js (10)* against a larger result set of ~64K events, and against an empty result set (where the server responsed to every request with **204 No Content**. Except where noted, only the results from testing the 1K data set appear in the graphs below<sup><a name="id-2" href="#id-2.ftn">2</a></sup>.
+Each request to the message bus returned ~1K of events, encoded as JSON. I also tested *Gevent (10)* and *Node.js (10)* against a larger result set of ~64K events, and against an empty result set (where the server responded to every request with *204 No Content*). Except where noted, only the results from testing the 1K data set appear in the graphs below<sup><a name="id-2" href="#id-2.ftn">2</a></sup>.
 
 ## Gevent vs. Node.js ##
 
@@ -129,7 +129,7 @@ Response Time (ms)
 Errors
 <div id="graph-4-errors" class="flot"></div>
 
-## No Content vs. 1K JSON vs. 64K JSON ##
+## 0K vs. 1K vs. 64K ##
 
 Throughput (req/sec)
 <div id="graph-2-rps" class="flot"></div>
@@ -147,11 +147,11 @@ Standard Deviation (req/sec)
 
 To check my Autobench results, I ran a separate test using weighttp, configured with the same rate at which autobench reported the highest requests per second for each message bus implementation (testing at 1 request per connection). 
 
-For example, the maximum throughput reported by Autobench for *Gevent (1)* was 322.8 req/sec, and occurred at a demand rate<sup><a name="id-3" href="#id-3.ftn">3</a></sup> of 340 req/sec. The closest mapping to httperf's --rate option for weighttp is -c (number of concurrent clients). So, to verify the Autobench/Httperf result for *Gevent (1)*, I ran the following:
+For example, the maximum throughput reported by Autobench for *Gevent (1)* was 322.8 req/sec, and occurred at a demand rate<sup><a name="id-3" href="#id-3.ftn">3</a></sup> of 340 req/sec. The closest mapping to httperf's *rate* option for weighttp is *-c* (number of concurrent clients). So, to verify the Autobench/Httperf result for *Gevent (1)*, I ran the following:
 
     weighttp -n 3000 -t 3 -c 340 -j <URL>
 
-Admittedly, using -c in this way is a bit of a fudge, but it works out OK since most of those 340 req/sec happen concurrently due to network and server latency.
+Admittedly, using *-c* in this way was a bit of a fudge, but it worked out OK since many of those 340 req/sec executed concurrently due to network and server latency.
 
 I compared my Autobench and weighttp results by examining the difference in ratios between succeeding implementations, in ascending order of maximum req/sec. In code:
 
@@ -167,7 +167,7 @@ Here's a graph showing the difference in relative req/sec reported by the two di
 
 <div id="graph-6" class="flot"></div>
 
-As you can see, the relative performance between implementations varied between 14% and 19%, which doesn't seem to indicate any anomalies between the results returned by Autobench and weighttp. 
+As you can see, the relative performance between implementations varied between 14% and 19%, which is reasonable, given the major differences in implementation between the two tools. The relative performance of the different implementations tested is similar enough to prove the credibility of the Autobench data (fn-at least the reqs/sec metrics).
 
 ## Q.E.D. ##
 
