@@ -6,16 +6,17 @@ tags: [Science Projects]
 id: D074292E-25AA-11E2-9238-0137128E45A1
 ---
 
-The majority of benchmarks posted on the web are derived from testing simple "hello world" apps. Although certainly better than nothing, these tests tell us little about real-world performance. Ideally, one would compare multiple implementations of a non-trivial application. Unfortunately, this takes a lot of time that is often hard to justify in the face of dogged competition and looming deadlines. Occasionally, however, the stars *do* align, and one has the chance to conduct such an experiment.
+The majority of benchmarks posted on the web are derived from testing simple "hello world" apps. Although certainly better than nothing, these tests tell us little about real-world performance. Ideally, one would compare multiple implementations of a non-trivial application, but this takes a lot of time that is often hard to justify in the face of dogged competition and looming deadlines. Occasionally, however, the stars *do* align, and one has the chance to conduct such an experiment.
 
 Lately, I've been researching the various merits of Python vs. JavaScript (ala Node.js), in terms of developing web-scale cloud services. In the course of my work, I ported an internal HTTP-based event queuing service from Python (currently running in production) to JavaScript. In a [previous post][last-post], I shared the results from some informal performance testing of these implementations.  
 
-In this post, I'd like to share my results from a second round of more rigorous performance testing, during which the test environment and variables were tightly controlled<sup><a name="id-1" href="#id-1.ftn">1</a></sup>. I switched from [ApacheBench][ab] to [Autobench][autobench]/[Httperf][httperf], in order to generate a more consistent, realistic load. 
+In this post, I'd like to share my results from a second round of more rigorous performance testing, during which the test environment and variables were tightly controlled<sup><a name="id-1" href="#id-1.ftn">1</a></sup>. I switched from [ApacheBench][ab] to [Autobench][autobench]/[Httperf][httperf], in order to generate a more consistent, realistic load. I also [monkey-patched PyMongo][pymongo-gevent] this time around, so that both Python and Node implementations would use non-blocking I/O all the way through.
 
 [last-post]: /2012/10/23/python-vs-node-vs-pypy.html
 [autobench]: http://www.xenoclast.org/autobench/
 [httperf]: http://www.hpl.hp.com/research/linux/httperf/
 [ab]: https://en.wikipedia.org/wiki/ApacheBench
+[pymongo-gevent]: http://api.mongodb.org/python/current/examples/gevent.html
 
 ## Testing Environment ##
 
@@ -72,9 +73,12 @@ In this post, I'd like to share my results from a second round of more rigorous 
 *Implementations*
 
 * **Node.js**: V8 + Node.js + Connect
-* **Gevent**: CPython + gevent.wsgi + gevent.monkey.patch_all()
+* **Gevent**: CPython + [gevent.wsgi][gevent-wsgi] + [gevent.monkey.patch_all()][patch-all]
 * **WsgiRef**: CPython + WSGI Reference Implementation
 * **WsgiRef-PyPy**: PyPy + WSGI Reference Implementation
+
+[gevent-wsgi]: http://www.gevent.org/gevent.wsgi.html
+[patch-all]: http://www.gevent.org/gevent.monkey.html
 
 ## Benchmarks ##
 
@@ -84,11 +88,17 @@ For each test, I ran Autobench directly against a single message bus implementat
 
 I carried out all benchmarks against a single instance of each implementation; no clustering or load balancing solutions were employed (i.e., HAProxy, Gunicorn, Node's *Cluster* module, etc.). Although this setup does not model production deployments, it removes variability in the results, making them easier to verify and interpret.
 
-For those implementations that supported HTTP/1.1 Keep-Alive<sup><a name="id-3" href="#id-3.ftn">3</a></sup>, I ran each test twice, once with 1 GET<sup><a name="id-4" href="#id-4.ftn">4</a></sup> per connection, and once again with 10 GETs per connection. I denoted this in the results by appending the number of requests per connection to each implementation name, as in *Gevent (1)* and *Gevent (10)*. The results of the latter test may be especially instructive to website developers, since browsers typically perform several requests per connection.
+For those implementations that supported HTTP/1.1 Keep-Alive<sup><a name="id-3" href="#id-3.ftn">3</a></sup>, I ran each test twice, once with 1 GET<sup><a name="id-4" href="#id-4.ftn">4</a></sup> per connection, and once again with 10 GETs per connection. I denoted this in the results by appending the number of requests per connection to each implementation name, as in *Gevent (1)* and *Gevent (10)*. The results of the latter test may be especially instructive regarding web apps, since browsers typically perform several requests per connection.
 
-Each request to the message bus returned ~1K of events, encoded as JSON. I also tested *Gevent (10)* and *Node.js (10)* against a larger result set of ~64K events, and against an empty result set (where the server responded to every request with *204 No Content*). Except where noted, only the results from testing the 1K data set appear in the graphs below.
+Each request to the message bus returned an identical set of JSON-encoded events (shallow objects, ~1K of text). I also tested *Gevent (10)* and *Node.js (10)* against a larger result set containing ~64K of events, and against an empty result set (where the server responded to every request with *204 No Content*). 
 
-Now for the results. I'll let the data<sup><a name="id-5" href="#id-5.ftn">5</a></sup> speak for itself.
+## Results ##
+
+Except where noted, only the results from testing the 1K data set appear in the graphs below. I used [Flot][flot] to visualize the raw data (see also the <a type="text/javascript" download="" href="/assets/js/python-vs-node-vs-pypy-benchmarks.js">JavaScript file</a> accompanying this post</a>).
+
+Now, I'll step aside for a moment and let the data speak for itself...
+
+[flot]: http://www.flotcharts.org/
 
 ## Gevent vs. Node.js ##
 
@@ -144,27 +154,28 @@ Standard Deviation (req/sec)
 
 Node.js outperforms Gevent significantly in terms of latency and error rates for small data transfers (~1K). However, in the case of larger response bodies (~64K), the difference between the two platforms is more subtle. Overall, the best-case scenario for Node.js appears to be serving large numbers of concurrent requests for small chunks of data, over a persistent connection.
 
-PyPy performs only slightly better than CPython when using Python's WSGI reference implementation. More work is needed to determine whether PyPy would perform similarly to Node.js given a compatible, non-blocking Python web framework *and* non-blocking MongoDB driver.
+PyPy performs only slightly better than CPython when using Python's WSGI reference implementation. More work is needed to determine whether PyPy would perform similarly to Node.js given a compatible, non-blocking Python web framework *and* a non-blocking MongoDB driver.
 
 Finally, regarding blocking vs. non-blocking I/O frameworks, Gevent certainly outperforms WsgiRef in terms of throughput and response time, although not by as much as one might expect.
 
 The plot thickens...
 
+@kgriffs
+
+**Thanks** to June Rich for reading drafts of this.
+
 <ul class="footnotes">
   <li>
-    <sup><a name="id-1.ftn" href="#id-1">1</a></sup> The test environment was not perfectly controlled due to my use of virtual machines on a shared network. On the other hand, my tests do have the benefit of demonstrating web app performance when hosting in the cloud.
+    <sup><a name="id-1.ftn" href="#id-1">1</a></sup> Admittedly, the test environment I used was not perfectly controlled due to my use of virtual machines on a shared network. This was a trade-off I was willing to make in order to test application performance in a production cloud hosting environment, which is how many web apps are deployed these days. 
   </li>  
   <li>
     <sup><a name="id-2.ftn" href="#id-2">2</a></sup> The <a href="http://www.xenoclast.org/autobench/">Autobench website</a> has a good description of these and other options, and how they translate to Httperf parameters.
   </li>
   <li>
-    <sup><a name="id-3.ftn" href="#id-3">3</a></sup> HTTP/1.0 did not document any support for persistent connections, although some servers supported it via the Keep-Alive header.
+    <sup><a name="id-3.ftn" href="#id-3">3</a></sup> HTTP/1.0 did not document any support for persistent connections, although some servers support it via the Keep-Alive header.
   </li>
   <li>
     <sup><a name="id-4.ftn" href="#id-4">4</a></sup> Although not tested, I suspect the relative performance between the different implementations would be similar when executing both GET and POST requests, assuming the database is able to keep up with the load. In mixed workloads, the database's write performance is more likely than the application to be a factor in any difference in performance between GET and POST, and my intent in this exercise was to test the app layer, not the DB.
-  </li>
-  <li>
-    <sup><a name="id-5.ftn" href="#id-5">5</a></sup> To view the raw data in all its numeric glory, see also the <a type="text/javascript" download="" href="/assets/js/python-vs-node-vs-pypy-benchmarks.js">JavaScript file</a> accompanying this post</a>.
   </li>
 </ul>
 
