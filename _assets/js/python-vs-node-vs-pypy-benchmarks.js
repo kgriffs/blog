@@ -79,25 +79,6 @@ $(function () {
       }
     };
 
-    var sanity_series = {
-      data: [
-          [0, Math.abs((max_rps.autobench.wsgiref_pypy / max_rps.autobench.wsgiref) - (max_rps.weighttp.wsgiref_pypy / max_rps.weighttp.wsgiref)) ],
-          [1, Math.abs((max_rps.autobench.wsgiref / max_rps.autobench.gevent) - (max_rps.weighttp.wsgiref / max_rps.weighttp.gevent))],
-          [2, Math.abs((max_rps.autobench.gevent / max_rps.autobench.nodejs) - (max_rps.weighttp.gevent / max_rps.weighttp.nodejs))]
-      ]
-    };
-
-    var sanity_options = {
-      bars: { show: true, align: 'center', barWidth: 0.7 },
-      lines: { show: false },
-      xaxis: {
-        min: -1,
-        max: 3,
-        ticks: [
-          [0, 's1'], [1, 's2'], [2, 's3']
-        ]
-      }
-    }
 
     var metrics = ['rps', 'rt', 'errors', 'stdev'];
   
@@ -123,8 +104,5 @@ $(function () {
       set.gevent_10.label = old_gevent_label
       set.nodejs_10.label = old_nodejs_label
     });
-
-    // Sanity check
-    $.plot($("#graph-6"), [ sanity_series ], sanity_options);
 
 });
