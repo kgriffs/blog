@@ -12,6 +12,14 @@ With Python and Node implementations in hand, I compared the two in terms of per
 
 In this particular post, I'd like to share my discoveries concerning Python vs. Node performance. 
 
+---
+
+*<strong>Update:</strong> See my followup post on [Python vs. Node][redux], in which I share my results from a more formal, rigorous round of performance testing.*
+
+---
+
+[redux]: /2012/11/13/python-vs-node-vs-pypy-benchmarks.html
+
 ## Testing Methodology ##
 
 For each test, I executed 5,000 GETs with ApacheBench (ab). I ran each benchmark 3 times from localhost<sup><a name="id-2" href="#id-2.ftn">2</a></sup> on a 4-core Rackspace Cloud Server<sup><a name="id-3" href="#id-3.ftn">3</a></sup>, retaining only the numbers for the best-performing iteration<sup><a name="id-4" href="#id-4.ftn">4</a></sup>.
