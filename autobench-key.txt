@@ -1,0 +1,10 @@
+0. dem_req_rate    
+1. req_rate
+2. con_rate
+3. min_rep_rate
+4. avg_rep_rate
+5. max_rep_rate
+6. stddev_rep_rate
+7. resp_time
+8. net_io
+9. errors
