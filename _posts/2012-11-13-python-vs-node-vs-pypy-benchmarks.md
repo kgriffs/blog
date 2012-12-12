@@ -84,6 +84,12 @@ In this post, I'd like to share my results from a second round of more rigorous 
 
 As in my previous experiment, I benchmarked retrieving a fixed set of events from an event queuing service backed by MongoDB, with alternative service implementations in Python and JavaScript. Unfortunately, I was not able to directly compare PyPy to both CPython *and* Node.js, since Gevent is currently incompatible with PyPy, and I did not have the luxury of reimplementing the queuing service a third time (using a non-blocking framework that works with PyPy, such as Tornado).
 
+---
+
+*<strong>Update:</strong> See my followup post on [Tornado, Gevent, PyPy and Cython][redux], in which I share my results from running my app with Tornado on PyPy.*
+
+---
+
 For each test, I ran Autobench directly against a single message bus implementation. I set *min\_rate* and *max\_rate* to 20 and 2000, respectively, in order to test a wide range of requests per second<sup><a name="id-2" href="#id-2.ftn">2</a></sup>. The x axes on the graphs below represent the range of req/sec attempted.
 
 I carried out all benchmarks against a single instance of each implementation; no clustering or load balancing solutions were employed (i.e., HAProxy, Gunicorn, Node's *Cluster* module, etc.). Although this setup does not model production deployments, it removes variability in the results, making them easier to verify and interpret.
@@ -92,9 +98,11 @@ For those implementations that supported HTTP/1.1 Keep-Alive<sup><a name="id-3" 
 
 Each request to the message bus returned an identical set of JSON-encoded events (shallow objects, ~1K of text). I also tested *Gevent (10)* and *Node.js (10)* against a larger result set containing ~64K of events, and against an empty result set (where the server responded to every request with *204 No Content*). 
 
+[redux]: /2012/12/12/gevent-vs-tornado-benchmarks.html
+
 ## Results ##
 
-Except where noted, only the results from testing the 1K data set appear in the graphs below. I used [Flot][flot] to visualize the raw data (see also the <a type="text/javascript" download="" href="/assets/js/python-vs-node-vs-pypy-benchmarks.js">JavaScript file</a> accompanying this post</a>).
+Except where noted, only the results from testing the 1K data set appear in the graphs below. I used [Flot][flot] to visualize the raw data (see also the <a type="text/javascript" download="" href="/assets/js/python-vs-node-vs-pypy-benchmarks.js">JavaScript file</a> accompanying this post).
 
 Now, I'll step aside for a moment and let the data speak for itself...
 
