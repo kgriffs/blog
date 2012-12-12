@@ -11,7 +11,7 @@ In this latest round of performance testing, I take the Tornado web framework fo
 
 After FriendFeed was acquired several years ago, [Tornado][tornado] stagnated a bit, but this past year the community has been hard at work. Version 2.0 came out this past June, and the framework is now at 2.4.1 (at the time of this writing).
 
-Unlike Gevent, Tornado is supported on [PyPy][pypy], letting me compare PyPy vs. CPython in terms of nonblocking sockets. While I was at it (famous last words), I also experimented with [Cython][cython] to see if just compiling a few key modules would give a comparable performance boost to running the entire app under PyPy.
+Unlike Gevent, Tornado works on [PyPy][pypy], making it possible to compare PyPy vs. CPython in terms of nonblocking sockets. While I was at it (famous last words), I also experimented with [Cython][cython] to see if just compiling a few key modules would give a comparable performance boost to running the entire app under PyPy.
 
 My setup for these tests was identical to the one used in my last post exploring [Python web api performance][prev-post], with the exception that I also added the following to ```/etc/sysctl.conf```.
 
