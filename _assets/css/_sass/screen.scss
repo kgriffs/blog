@@ -318,7 +318,16 @@ i, em {
     font-weight: normal;
     text: {
       shadow: none;
-      transform: none; }; } }
+      transform: none; }; }
+
+  img {
+    display: block;
+    float: right; 
+    position: relative;
+    left: -10px;
+    padding: 0px;
+    margin: -10px; }
+}
 
 // CONTENT
 #content {
@@ -398,6 +407,7 @@ div.item {
       margin-top: 25px;
       padding-top: 25px;
       border-top: 1px solid #e6e6e6; } }
+
   div.header {
     h1, h2 {
       margin: 0px;
