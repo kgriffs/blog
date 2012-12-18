@@ -315,6 +315,11 @@ i, em {
   h2 {
     border-bottom-width: 0px;
     color: $faded-color;
+    font: {
+      weight: normal;
+      family: 'Annie Use Your Telescope', Arial;
+      size: 21px;
+    }
     font-weight: normal;
     text: {
       shadow: none;
