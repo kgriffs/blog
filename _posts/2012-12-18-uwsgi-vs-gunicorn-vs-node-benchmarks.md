@@ -71,7 +71,7 @@ Standard Deviation for Throughput (req/sec)
 
 ## Q.E.D. ##
 
-uWSGI looks like the Python app server to beat, although it's performance did become a bit erratic under high load. Not only is it ridiculously fast, but judging by the docs, uWSGI's gives you a lot of great options for production tuning. 
+uWSGI looks like the Python app server to beat, although it's performance did become a bit erratic under high load. Not only is it ridiculously fast, but judging by the docs, uWSGI gives you a lot of great options for production tuning. 
 
 But what's more, with an optimized web framework and uWSGI on your side, it looks like Python apps can hold their own against Node. 
 
