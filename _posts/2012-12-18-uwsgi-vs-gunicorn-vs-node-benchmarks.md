@@ -8,9 +8,9 @@ id: E3F16CBC-4547-11E2-8358-68BBD1B0F3CE
 
 It seems I've finally arrived at the end of my quest to discover a fast, reliable Python stack for serving web APIs that can compete favorably with Node. The funny thing is, I didn't even know it was my quest until I started looking at the surprising results from this latest round of performance testing, in which I pitted uWSGI against Gunicorn. 
 
-When it comes to deploying web APIs, my preference is to use something lean-n-mean for managing local sockets and WSGI workers, leaving macro load balancing, SSL termination, rate limiting and general HTTP heavy-lifting to the big guns (e.g., Stingray, Ngnix, HAProxy, Stud).  
+When it comes to deploying web APIs, my preference is to use something lean-n-mean for managing local sockets and WSGI workers, leaving macro load balancing, SSL termination, rate limiting and general HTTP heavy-lifting to the big guns (e.g., Stingray, Nginx, HAProxy, Stud).  
 
-Gunicorn has been my go-to WSGI server for hosting web APIs in production, due to its simplicity, performance, and manageability. Recently I re-discovered uWSGI and was pleasantly suprised to find how far it has come in the past couple of years. I was particularly impressed by uWSGI's high configurability, including lots of production-friendly options. 
+Gunicorn has been my go-to WSGI server for hosting web APIs in production, due to its simplicity, performance, and manageability. Recently I re-discovered uWSGI and was pleasantly surprised to find how far it has come in the past couple of years. I was particularly impressed by uWSGI's high configurability, including lots of production-friendly options. 
 
 Considering that uWSGI and Gunicorn are both pre-forking<sup><a name="id-1" href="#id-1.ftn">1</a></sup> WSGI servers, and given other design similarities, I couldn't help but wonder how each would perform in the ring.  
 

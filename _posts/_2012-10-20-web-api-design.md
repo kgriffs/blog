@@ -16,6 +16,7 @@ In 1986, James J. Gibson coined the term "affordance." He theorized that the sur
 
     An affordance is a quality of an object, or an environment, that allows an individual to perform an action.
 
+
 Donald A. Norman's later expounded on the idea of affordances in a way that is particularly interesting in the realm of API design:
 
     The value of a well-designed object is when it has such a rich set of affordances that the people who use it can do things with it that the designer never imagined.
