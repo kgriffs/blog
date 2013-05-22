@@ -39,11 +39,12 @@ Third, Falcon avoids system-level dependencies. In addition to reducing the fram
 
 ## What's next for the framework? ##
 
+Roadmap
 -docs
+-hooks
 -etc.
 
 ## How can you get involved? ##
 
 -- try it out, issues list, pull requests, etc.
 -- docs
--- also summary
