@@ -1,44 +1,42 @@
-
-
-Three points:
-
-Over the past few years we've seen a string of attacks targeting well-known web
-services. The ensuing identity theft and PR nightmares prompted a migration
-in the community away from naive password managmeent to what was promulgated as
-a more "secure" set of best pratices. Unfortunately, this new set of practices
-have been deprecated for years, but somehow everyone missed the memo.
-
-I'm not a cryptographer, just a concerned citizen.
-
-# Plaintext, MD5 Considered Harmful #
+---
+layout: post.html
+title: "SHA Snake Oil"
+summary: The SHA message-digest algorithm has its uses, but password hashing isn't one of them.
+tags: [Security]
+id: 66fc67fe-1cb7-11e3-95e0-ea6628d43830
+---
 
 High-profile breaches over the past couple of years have brought to light two inconvenient truths:
 
-#. Securing the perimiter is no longer good enough.
-#. Many software developers are naive when it comes to security.
+#. Securing the perimeter is no longer good enough.
+#. Most software developers are naive when it comes to security<sup><a name="id-1" href="#id-1.ftn">1</a></sup>.
 
-Many web services, as it turns out, store their user's passwords in plaintext. Slightly less embarrassing to us software engineers&em;but still troubling&em;was the revelation that MD5 is still in use despite it having been cracked long ago. This is all very serious stuff, especially considering that people often reuse passwords across multiple services.
+Many web services, as it turned out, have been storing their user's passwords in plaintext. Slightly less embarrassing to our profession&em;but still troubling&em;was the revelation that MD5 is still in wide-spread use despite it having been cracked long ago. This is all very serious stuff, especially considering that most humans reuse the same password everywhere they go.
 
-Following these highly-publicized breaches, a movement began to migrate away from storing plaintext and MD5-hashed passwords. The movement had the right spirit, just not the right direction. I'm not sure how this got started, but using salted, SHA-based pasword hashes was promulgated as the de-facto "fix" for mitigating these sorts of attacks in the future.
+You already knew all that. But here's the rest of the story.
 
-# SHA Considered Harmful #
+Sparked by these highly-publicized breaches, a movement began to migrate away from storing plaintext and MD5-hashed passwords. The movement had the right spirit, just not the right direction. I'm not sure how this got started, but using salted, SHA-based password hashes was promulgated as the de facto "fix" for mitigating these sorts of attacks.
 
-Here's the problem: SHA, just like MD5, was actually *optimized* by it's inventors for speed. In other words, these hash functions were designed to generate a one-way hash *as quickly as possible*. This is bad news in today's world of commodity GPUs that can literally hash **billions of passwords** per second. Armed with a video card (or two) and some knowledge of how humans typically choose passwords, it's trivial for an attacker to crack a hash file once they get their hands on it.
+# SHA Snake Oil #
+
+Here's the problem: SHA, just like MD5, is actually *optimized* for speed. In other words, just like MD5, SHA was designed to generate a one-way hash *as quickly as possible*. This is a good property to have in some cases, but when it comes to password hashing, the last thing you want is an algorithm designed for efficiency, especially in today's world of commodity GPUs that can perform **billions of hashes** per second. Armed with a video card (or two) and some knowledge of how humans typically choose passwords, it becomes trivial for an attacker to crack large portions of your average hash file.
 
 # KDF to the Rescue! #
 
-When it comes to authenticating passwords, what you need is a battle-tested key-derivation function (KDF). Unlike hash functions, these KDF things are designed to run as slow as tar. When it comes to security, you don't have to be perfect, just good enough to make cracking your data more trouble than it's worth. That's exactly what a KDF is designed to do; slow down an attack just enough that it becomes impractical to execute, in terms of compute power and time, while still being fast enough that users don't notice the delay when signing in.
+Key derivation functions (KDFs) comprise a family of algorithms for generating password hashes. Unlike message-digest algorithms such as MD5 and SHA, KDFs are designed to be *inefficient*. Proper use of a KDF helps to make brute-force attacks impractical to execute, in terms of cost and time, while still being fast enough that users won't notice a delay when signing in.
 
-Choosing an aswesome KDF is pretty easy; there are really only two options you need to consider:
+Here are my (current) go-to KDFs:
 
-#. PBKDF2-HMAC-SHA256. This RSA-developed, NIST-recommended algorithm has been widely used and studied. You can find it in anything from LastPass to Django, Mountain Lion to Android. PBKDF2 is most likely available for your language of your choice.
-#. scrypt. This KDF is relatively new, but has the advantage of requiring lots of memory, which mitigates custom hardware attacks. scrypt was invented by cryptographer Colin Percival, and is on track to becoming an IETF standard.
+#. PBKDF2-HMAC-SHA256. This RSA-developed, NIST-recommended algorithm has been widely used and vetted by cryptographers. You can find it in anything from LastPass to Django, Mountain Lion to Android. PBKDF2 is a good choice if an scrypt library is not available for your programming language.
+#. scrypt. This KDF is relatively new and not as battle-tested as some older algorithms, but has the advantage of requiring lots of memory, which mitigates attacks that rely on custom hardware. scrypt was invented by cryptographer Colin Percival, and is on track to becoming an IETF standard.
 
-My personal recommendation would be to go with scrypt unless your programming language and/or platform does not yet support it. Keep in mind, however, that I'm not a cryptographer, so you should make your own evaluation and talk to some folks who live and breath crypto before settling on any kind of authentication scheme for your project.
+Personally, I think scrypt is the way to go if you can use it in your environment<sup><a name="id-2" href="#id-2.ftn">2</a></sup>. That being said, I'm not a cryptographer; you should make your own evaluation, including chatting with your friendly neighborhood security geek, before settling on any kind of security scheme for your own projects. Getting security right is really hard, and so it is always prudent to seek out advice from folks who live and breath this stuff.
 
-references to stories, best practices
+@kgriffs
 
-http://www.tarsnap.com/scrypt/scrypt.pdf
-http://arstechnica.com/security/2013/04/why-livingsocials-50-million-password-breach-is-graver-than-you-may-think/
-http://arstechnica.com/security/2012/10/sha1-crypto-algorithm-could-fall-by-2018/
-http://arstechnica.com/security/2012/08/passwords-under-assault/
+<ul class="footnotes">
+  <li>
+    <sup><a name="id-1.ftn" href="#id-1">1</a></sup>No offense, it's just the truth.
+    <sup><a name="id-2.ftn" href="#id-2">2</a></sup>Implementations of scrypt are not as widely available as compared to PBKDF2, at the time of this writing.
+  </li>
+</ul>
