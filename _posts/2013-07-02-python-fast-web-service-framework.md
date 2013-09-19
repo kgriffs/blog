@@ -8,9 +8,8 @@ id: f254b484-e367-11e2-b38b-6a9145c3e185
 
 When measuring the performance of a web service, I like to find out how quickly the service responds to requests (latency), and how much horsepower is required to serve each request (efficiency).
 
-<img class="block" src="/assets/images/web-framework-performance.gif" width="560px" height="354px" alt="Web Framework Performance: Latency and Efficiency" />
-
-Efficiency is important because it allows me to serve large numbers of customers at a reasonable cost (both to them and to myself). Latency is also important to me, because it correlates with usability; if an API responds faster, then apps using that API respond faster, and by extension the people using those apps are happier, and more likely to spend more time with those apps. Yay!
+Efficiency is important because it allows me to serve large numbers of customers at a reasonable cost (both to them and to myself). Latency is also important to me, because it correlates with usability; if an API responds faster, then apps using that API respond faster, and by extension the people using
+<img class="left" src="/assets/images/web-framework-performance.gif" width="240px" height="127px" alt="Web Framework Performance: Latency and Efficiency" /> those apps are happier, and more likely to spend more time with those apps. Yay!
 
 Of course, there are many factors that influence web service latency and efficiency; one area that often gets overlooked or downplayed is the performance of the underlying web framework. Previously, I shared some performance testing results involving a queuing message service that used Rawr, a proprietary micro-framework I developed for Rackspace a few years back. Those results made it clear that even a small improvement in performance of the framework (in the case of Rawr, compiling it with Cython) can make a big difference in performance.
 
@@ -18,7 +17,8 @@ Several of you asked about getting the code for Rawr, and so I'm happy to announ
 
 ## Introducing the Falcon Web Framework ##
 
-<img class="right" src="/assets/images/falcon-small.png" width="136px" height="180px" alt="Falcon image courtesy of John O'Neill." />
+<img src="/assets/images/falcon-no-perch.png" width="159px" height="176px" alt="Falcon image courtesy of John O'Neill." />
+
 
 [Falcon][home] is a new, high-performance web framework for building web services and cloud APIs with Python. It's WSGI-based, and works great with Python 2.6, Python 2.7, Python 3.3, and PyPy, giving you a wide variety of deployment options. While [the project][source] is still quite young (v0.1.6 at the time of this writing), it's far enough along to be useful in real applications. In fact, we're already trying it out in a few cloud projects at Rackspace.
 
@@ -37,7 +37,10 @@ I didn't particularly *want* to write Falcon. It would have been far easier to t
 
 First, Falcon is already [pretty fast][bench], and will be getting faster. When there is a conflict between saving the developer a few keystrokes and saving a few microseconds to serve a request, Falcon is strongly biased toward the latter.
 
+
 Second, Falcon is lean. It doesn't try to be everything to everyone, focusing instead on a single use case: HTTP APIs. Falcon doesn't include a template engine, form helpers, or an ORM. When you sit down to write a web service with Falcon, you choose your own adventure in terms of async I/O, serialization, data access, etc. In fact, the only dependency Falcon takes is on Six, to make it easier to support both Python 2 and 3.
+
+<img class="block" src="/assets/images/flight-silhouettes.gif" width="580px" alt="Falcon image courtesy of L. Shyamal and Wikipedia." />
 
 Third, Falcon eschews magic. When you use the framework, it's pretty obvious which inputs lead to which outputs. Also, it's blatantly obvious where variables originate. All this makes it easier for you and your posterity to reason about your code, even months (or years) after you wrote it.
 
