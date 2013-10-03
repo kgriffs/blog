@@ -11,11 +11,9 @@ High-profile breaches over the past couple of years have brought to light two in
 #. Securing the perimeter is no longer good enough.
 #. Most software developers are naive when it comes to security<sup><a name="id-1" href="#id-1.ftn">1</a></sup>.
 
-Many web services, as it turned out, have been storing their user's passwords in plaintext. Slightly less embarrassing to our profession&em;but still troubling&em;was the revelation that MD5 is still in wide-spread use despite it having been cracked long ago. This is all very serious stuff, especially considering that most humans reuse the same password everywhere they go.
+Many web services have been storing their user's passwords in plaintext. Slightly less embarrassing to our profession&em;but still troubling&em;was the revelation that MD5 is still in wide-spread use despite it having been cracked long ago. This is all very serious stuff, especially considering that humans tend to reuse the same password everywhere they go, allowing a single security breach to effectively crack multiple systems simultaneously.
 
-You already knew all that. But here's the rest of the story.
-
-Sparked by these highly-publicized breaches, a movement began to migrate away from storing plaintext and MD5-hashed passwords. The movement had the right spirit, just not the right direction. I'm not sure how this got started, but using salted, SHA-based password hashes was promulgated as the de facto "fix" for mitigating these sorts of attacks.
+Sparked by these highly-publicized breaches, a movement began to migrate away from storing plaintext and MD5-hashed passwords. The movement had the right spirit, just not the right direction. Using salted SHA's for hashing passwords was promulgated as the new best practice. Oops.
 
 # SHA Snake Oil #
 
