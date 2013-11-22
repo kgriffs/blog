@@ -144,7 +144,7 @@ li {
     content: none; } }
 
 ol, ul {
-  margin-left: 35px;
+  // margin-left: 35px;
   list-style: {
     image: none;
     position: inside;
@@ -159,6 +159,9 @@ ol {
 
 p, li {
   line-height: 1.3em; }
+
+li {
+  margin-top: 0.4em; }
 
 pre, code {
   font: {
