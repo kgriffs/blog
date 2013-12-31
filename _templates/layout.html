@@ -32,13 +32,21 @@
     </div>
 
     <div id="header">
-      <!-- <img width="101px" alt="Merry Christmas!" src="{{ get_asset('images/christmas-tree.png') }} " /> -->
       <div>
         <h1><a href="{{ get_url() }}">{{ site.title }}</a></h1>
         {% if site.subtitle %}<h2>{{ site.subtitle }}</h2>{% endif %}
       </div>
     </div>
 
+<!--
+    <div id="header">
+      <img width="101px" alt="Merry Christmas!" src="{{ get_asset('images/christmas-tree.png') }} " />
+      <div>
+        <h1 style="font-size: 62px"><a href="{{ get_url() }}">{{ site.title }}</a></h1>
+        {% if site.subtitle %}<h2>{{ site.subtitle }}</h2>{% endif %}
+      </div>
+    </div>
+ -->
 
     <div id="content">
       {% block content %}{% endblock %}
