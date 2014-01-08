@@ -27,7 +27,7 @@ description: The cloud movement significantly changes the nature of applications
 # Used in the site feed.
 email: mail@kgriffs.com
 # Your site's subtitle.
-subtitle: "Kurt's illustrated thoughts on cloud engineering and stuff."
+subtitle: "Kurt's cloud tips, essays, and research"
 # Your site's title.
 title: Fluffy White Stuff
 
@@ -58,7 +58,7 @@ social:
     github: kgriffs
     google_plus: 101128010261665489254
     lastfm:
-    stack_overflow: 
+    stack_overflow:
     steam:
     twitter: kgriffs
 

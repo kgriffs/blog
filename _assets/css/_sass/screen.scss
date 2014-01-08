@@ -1,5 +1,7 @@
 @import "base";
 
+$header-font: 'Londrina solid';
+
 $faded-color: #8c8c8c;
 $link-color-for-faded: #4d4d4d;
 $link-color-body: #5bb6ca;
@@ -282,7 +284,7 @@ i, em {
   a {
     color: #333;
     font: {
-      family: 'Chelsea Market', Arial;
+      family: $header-font, Arial;
       size: 12px; };
 
     text-transform: uppercase;
@@ -311,8 +313,8 @@ i, em {
     padding: 0px; }
   h1 {
     font: {
-      family: 'Londrina Sketch', Arial;
-      size: 83px;
+      family: 'Londrina Shadow', Arial;
+      size: 70px;
       weight: normal; }; }
   h2 {
     border-bottom-width: 0px;
@@ -366,7 +368,7 @@ ul.footnotes {
     text-transform: uppercase;
 
     font: {
-      family: 'Chelsea Market', Arial;
+      family: $header-font, Arial;
       size: 22px;
       style: normal; } }
 }
@@ -424,7 +426,7 @@ div.item {
       text-transform: uppercase;
 
       font: {
-        family: 'Chelsea Market', Arial;
+        family: $header-font, Arial;
         size: 24px;
         style: normal;
         weight: normal; } }

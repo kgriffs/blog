@@ -3,7 +3,6 @@ layout: post.html
 title: A first cloud post
 summary: Cloud computing is the Next Big Thing&trade;. This blog helps software developers sort it all out.
 tags: [Essays]
-id: 6E3738E0-EDFC-11E1-95B6-6E52F4FE7011
 ---
 
 Cloud computing is the Next Big Thing&trade;. This blog is my attempt to share my experiences and help fellow software developers sort it all out.
@@ -20,7 +19,7 @@ Microsoft has been promoting this sort of "smart client" approach for years, but
 
 The cloud movement significantly changes the nature of applications. Apps are no longer serfs hiding inside impenetrable castles. You've now got to design **connected** agents, personal assistants, and social butterflies. And it all has to be elastic and scalable.
 
-# Cloud++ #
+# The Future is Fluffy #
 
 As a cloud architect and hacker at Rackspace, I've become convinced that we are only at the beginning of a long journey. From the infrastructure to the apps&mdash;and everything in between&mdash;we can't just continue building things the **same old way**. The cloud is a *very* different way of thinking about the world of computing. We still have a whole lot of experimentation and discovery ahead of us.
 

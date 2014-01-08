@@ -3,7 +3,6 @@ layout: post.html
 title: "SHA Snake Oil"
 summary: The SHA message-digest algorithm has its uses, but it's no cure-all.
 tags: [Security]
-id: 77ac0a92-562c-11e3-8aa0-d701cce406e9
 ---
 
 Massive, highly-publicized security breaches of online services in recent years have exposed the inconvenient truth that many web services still use MD5-based password authentication, and some don't even hash passwords in the first place.
