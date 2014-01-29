@@ -27,7 +27,7 @@ Stephen Covey found in his research that highly successful people seek first to 
 
 > If you're like most people, you probably seek first to be understood; you want to get your point across. And in doing so, you may ignore the other person completely, pretend that you're listening, selectively hear only certain parts of the conversation or attentively focus on only the words being said, but miss the meaning entirely. So why does this happen? Because most people listen with the intent to reply, not to understand.
 
-As you seek you to understand another's point of view, it helps to recognize that different things "feel" right to different people. When you standardize on One Thing, you gain some advantages with respect to knowledge and code reuse, but those are often offset by the loss in productivity that is inevitable when you force a significant portion of your community to use something that doesn't feel natural to their way of thinking.
+As you seek to understand another's point of view, it helps to recognize that different things "feel" right to different people. When you standardize on One Thing, you gain some advantages with respect to knowledge and code reuse, but those are often offset by the loss in productivity that is inevitable when you force a significant portion of your community to use something that doesn't feel natural to their way of thinking.
 
 More importantly, by mandating One Thing, you dissuade people from experimenting with other things which may (or may not) some day prove to be better than the One Thing, or at least inform future revisions of the One Thing. I don't pretend to know in advance what the Best Thing is, and neither should any other community member.
 
