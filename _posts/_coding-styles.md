@@ -1,5 +1,0 @@
-Based on my own experience as a developer and manager, coding standards are not necessarily evil (but they can be if taken to extremes). In your career you spend a lot more time reading code than writing it; the primary role of coding standards is to reduce context switching for your brain when reading other people’s code.
-
-The second role of coding style guides is to avoid common programming mistakes that happen just because of the way our brains work. It isn’t that we are “dumb”, it’s just that we aren’t perfect.
-
-And, finally, the third role of coding style guides is to avoid wasting times on religious wars about silly things, like tabs vs. spaces, and where the curly bracket starts. As a team you agree on something that makes the most sense according to what tools and platforms all the devs are using (e.g., tabs are no big deal for Windows devs, but suck for Linux devs, so just use spaces and/or configure your SCM to do the translation for you).

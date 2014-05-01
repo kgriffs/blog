@@ -9,10 +9,6 @@ I'm quite proud of the new Falcon 0.1.8 release. Thanks to our growing community
 
 Also, there was a ton of work done to improve performance in hot code paths, in order to offset the extra processing required by the new features landing in 0.1.8.
 
-Please, take [0.1.8](https://pypi.python.org/pypi/falcon/0.1.8) for a spin and tell me what you like, what you don't, and what you would like to see in the next version. As always, you can find me on Freenode in **#falconframework** and on Twitter **@kgriffs**.
-
-Check out these highlights...
-
 ## Custom Error Handlers ##
 
 You can now DRY up your error code by registering global handlers. An error handler is just a callable that takes the exception that was raised, plus the standard req and resp args that were passed to the responder, along with the params dict that was passed as kwargs to the responder.
@@ -114,7 +110,7 @@ Also, you can now manually encode/decode URI things in your app if you're crazy 
 
 All WSGI frameworks I've tested slow down when running under Python 3.3, relative to Python 2.7, but thanks to some serious voodoo, Falcon's own performance gap has narrowed quite a bit as of 0.1.8. The difference is now just 12 μs/req. Check out the [latest benchmarks](http://falconframework.org/#Metrics) and see for yourself.
 
-[Get it while it's hot.](https://pypi.python.org/pypi/falcon)
+Please, take [0.1.8](https://pypi.python.org/pypi/falcon/0.1.8) for a spin and tell me what you like, what you don't, and what you would like to see in the next version. As always, you can find me on Freenode in **#falconframework** and on Twitter **@kgriffs**.
 
-@kgriffs
+[Get it while it's hot.](https://pypi.python.org/pypi/falcon)
 

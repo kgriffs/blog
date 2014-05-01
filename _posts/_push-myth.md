@@ -1,5 +1,8 @@
 As it happens, Big Data recently kicked off development of a cloud message bus product. The product will expose a RESTful API, and will support both eventing (ala AtomHopper and RSE) and transactional semantics (ala Amazon SQS). It will be developed in the open so everyone is welcome to contribute ideas and code (stay tuned for details).
 
+
+See also: dox-marconi/polling\ notes.md
+
 ## Re Polling Architectures ##
 
 The Rackspace Cloud Backup team has proven with RSE (and it's predecessor, PLC) that you can scale such a message bus to 100's of thousands (even millions) of clients and topics, with low latency and efficient hardware utilization.
@@ -17,7 +20,7 @@ Keys to RSE's success:
 Based on pre-launch performance testing and live New Relic stats, RSE's current 16-box production cluster will be able to handle north of 70,000 clients, serving around 500,000 reqs/min while keeping response times under 50 ms.
 </SWAG>
 
-Stuff that could be done with RSE to further reduce latency and/or increase efficiency: 
+Stuff that could be done with RSE to further reduce latency and/or increase efficiency:
 
 * Response caching
 * Batch posts

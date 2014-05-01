@@ -39,4 +39,3 @@ It is common to think "me vs. them", but the most effective community leaders th
 
 If you have to push very hard to get people to adopt Your Thing, you are doing it wrong. You aren't building the community; you are poisoning it.
 
-@kgriffs

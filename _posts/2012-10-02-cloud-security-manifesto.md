@@ -2,7 +2,7 @@
 layout: post.html
 title: Cloud Security Manifesto
 summary: We need to build a cloud that people can trust.
-tags: [Essays]
+tags: [Essays, Security]
 ---
 
 When folks consider public cloud hosting, security is one of their biggest hangups. Given this overwhelming demand for more secure products, **it's surprising** how few developers take the time to learn and apply security best practices. I have no doubt the market will reward SaaS and IaaS developers who take their customer's privacy seriously.

@@ -1,35 +1,17 @@
 @import "base";
 
-$header-font: 'Londrina solid';
+$header-font: 'Chelsea Market';
 
-$faded-color: #8c8c8c;
+$faded-color: black;
 $link-color-for-faded: #4d4d4d;
-$link-color-body: #5bb6ca;
+$link-color-body: #d06e01;
 $separator-color: #d9d9d9;
-
-//
-// WEBKIT SCROLLBARS
-//
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px; }
-
-::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment {
-  display: none;
-  width: 0px;
-  height: 0px; }
-
-::-webkit-scrollbar-track:corner-present, ::-webkit-scrollbar-track-piece, ::-webkit-scrollbar-corner, ::-webkit-resizer {
-  background-color: #77805f; }
-
-::-webkit-scrollbar-thumb:vertical, ::-webkit-scrollbar-thumb:horizontal {
-  background-color: #5f664c; }
 
 //
 // BASE ELEMENTS
 //
 body {
-  background-color: #fafafa;
+  background-color: #fefefe;
   font: {
     family: "PT Sans", "Helvetica", sans-serif;
     size: 16px; }; }
@@ -115,11 +97,17 @@ h5, h6 {
   font-size: 12px; }
 
 h1 {
-  font-size: 17px;}
+  font-size: 17px;
+}
 
 h2 {
   margin-top: 25px;
-  font-size: 18px; }
+  color: #222;
+
+  font: {
+    size: 20px;
+  }
+}
 
 h3 {
   font-size: 14px; }
@@ -230,11 +218,11 @@ a {
     text-decoration: underline; } }
 
 code {
-  padding: 0px 2px 0px 2px;
-  background-color: #e6e6e6;
-  border: 1px solid $separator-color;
-  @include box-shadow(0px 0px 0px 2px #f2f2f2);
-  white-space: pre; }
+  padding: 1px 4px 1px 4px;
+  background-color: rgba(255, 255, 255, 0.5);
+  // border: 1px solid $separator-color;
+  white-space: pre;
+}
 
 small {
   display: block;
@@ -387,6 +375,11 @@ div.item {
     float:right;
     border:0;
     margin:0; }
+
+  img.inline {
+    float: none;
+  }
+
   img.left {
     float: left;
     margin-right: 5px;
@@ -446,12 +439,46 @@ div.item {
       span {
         position: relative;
         top: -2px; } } }
+
   div.footer {
     font: {
       size: 12px;
       weight: bold;
     }
     text-transform: uppercase; } }
+
+  #sidebar {
+    position: fixed;
+    z-index: 10;
+    margin-left: -200px;
+
+    #wiz {
+      margin-left: -5px;
+    }
+
+    .instructions {
+      font-family: 'Annie Use Your Telescope', Arial;
+      font-size: 14px;
+      width: 150px;
+      margin: 0;
+    }
+
+    .subtext {
+      font-size: 10px;
+      margin: {
+        left: 5px;
+      }
+    }
+
+    .spacer {
+      height: 2em;
+    }
+  }
+
+  h2 {
+    margin-bottom: -10px;
+  }
+
 
 div.pagination {
   margin-top: 25px;

@@ -5,6 +5,26 @@
 
 {% block content %}
 <div class="item">
+  <div id="sidebar">
+    <div>
+      <iframe id="wiz" width="160" height="80" src="https://wizpert.com/wizapi/widget?beta_key=3ba42&ep=30529&size=small&topic_slug=python-programming" frameborder="0" scrolling="no" allowfullscreen></iframe>
+    </div>
+    <div>
+      <p class="instructions">Share this post for much win.</p>
+      <div class="body">
+        <a href="http://www.reddit.com/submit" onclick="window.location = 'http://www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"> <img class="inline" height=19 style="padding-bottom: 1px" src="http://www.reddit.com/static/spreddit1.gif" alt="submit to reddit" border="0" /> </a>
+        <span class="g-plusone" data-size="medium" data-annotation="none"></span>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="kgriffs" data-count="none">Tweet</a>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div>
+      <form name="FeedBlitz_ab2334388e7c11e3b3c1002590771251" style="display:block" method="POST" action="http://www.feedblitz.com/f/f.fbz?AddNewUserDirect"><p class="instructions">Enter your email address for free updates and stuff. This is a low-volume list.<p> <input style="display:none" name="EMAIL" maxlength="64" type="text" size="25" value=""> <input name="EMAIL_" maxlength="64" type="hidden" size="25" value=""> <input name="EMAIL_ADDRESS" maxlength="64" type="hidden" size="25" value=""> <input name="FEEDID" type="hidden" value="939857"> <input name="PUBLISHER" type="hidden" value="35511520"> <input type="button" value="subscribe" onClick="FeedBlitz_ab2334388e7c11e3b3c1002590771251s(this.form);">
+      <p class="subtext"><a href="http://www.feedblitz.com/f?previewfeed=939857">Preview</a> | Powered by <a href="http://www.feedblitz.com">FeedBlitz</a></p>
+      </form> <script language="Javascript">function FeedBlitz_ab2334388e7c11e3b3c1002590771251i(){var x=document.getElementsByName('FeedBlitz_ab2334388e7c11e3b3c1002590771251');for(i=0;i<x.length;i++){x[i].EMAIL.style.display='block'; x[i].action='http://www.feedblitz.com/f/f.fbz?AddNewUserDirect';}} function FeedBlitz_ab2334388e7c11e3b3c1002590771251s(v){v.submit();}FeedBlitz_ab2334388e7c11e3b3c1002590771251i();</script>
+    </div>
+  </div>
+
   <div class="header">
     <h1>{{ post.title }} </h1>
     <h2>{{ post.date }}{% if post.tags %} <span>&raquo;</span> {% for tag in post.tags %}<a href="{{ get_url(tags[tag].url) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</h2>
@@ -12,10 +32,6 @@
 
   <div class="body">
     {{ post.content }}
-  </div>
-  <div class="body">
-    <span class="g-plusone" data-size="medium" data-annotation="none"></span>
-    <a href="https://twitter.com/share" class="twitter-share-button" data-via="kgriffs" data-count="none">Tweet</a>
   </div>
 
   <script type="text/javascript">
@@ -25,13 +41,13 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
     })();
   </script>
-  
+
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 {% if post.id %}
 
   <div id="disqus_thread"></div>
   <script type="text/javascript">
-    var disqus_shortname = 'fluffywhitestuff'; 
+    var disqus_shortname = 'fluffywhitestuff';
     var disqus_identifier = '{{ post.id }}';
     var disqus_url = 'http://blog.kgriffs.com{{ post.url }}';
 
