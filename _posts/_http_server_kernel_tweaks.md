@@ -1,5 +1,7 @@
 When deploying a web head,
 
+https://wiki.archlinux.org/index.php/Sysctl#TCP.2FIP_stack_hardening
+
 https://gist.github.com/kgriffs/4027835
 http://www.webhostingtalk.com/showthread.php?t=257654
 http://www.nateware.com/linux-network-tuning-for-2013.html
