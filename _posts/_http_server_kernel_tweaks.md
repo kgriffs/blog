@@ -1,6 +1,14 @@
 When deploying a web head,
 
+
+new:
 https://wiki.archlinux.org/index.php/Sysctl#TCP.2FIP_stack_hardening
+Below are some kernel tweaks that I use for CentOS 6.2 with a 10 GB NIC.
+http://www.linuxinstruction.com/?q=node/15
+https://www.frozentux.net/ipsysctl-tutorial/chunkyhtml/tcpvariables.html
+https://www.frozentux.net/ipsysctl-tutorial/chunkyhtml/theconfvariables.html
+
+--
 
 https://gist.github.com/kgriffs/4027835
 http://www.webhostingtalk.com/showthread.php?t=257654
@@ -9,7 +17,6 @@ http://www.nateware.com/linux-network-tuning-for-2013.html
 http://support.atmail.com/display/DOCS/Tuning+Sysctl+Paramaters+For+Heavily+Loaded+Systems
 http://dak1n1.com/blog/12-nginx-performance-tuning
 
-https://www.frozentux.net/ipsysctl-tutorial/chunkyhtml/theconfvariables.html
 
 clarify that this is for Linux
 
@@ -28,7 +35,22 @@ Using SYN cookies is one strategy for mitigating SYN floods. A SYN cookie allows
 Enable SYN cookies in the network stack using this option in *sysctl.conf*:
 
 ```conf
+# Enable SYN cookies to mitigate SYN flood 
+# attacks (default 0)
 net.ipv4.tcp_syncookies = 1
+```
+
+You can also reduce the impact of a SYN flood on the kernel's connection queue by reducing the amount of time the server will wait for the final ACK packet from the client:
+
+```conf
+# Reduce the number of times the server will retransmit the
+# SYN-ACK packet while waiting for a client to respond with 
+# the final ACK when negotiating a TCP connection (default 5). 
+# 
+# Each attempt will take around 30-40 seconds, so a value of
+# 2 will make unestablished connections time out after about
+# a minute.
+tcp_synack_retries = 2
 ```
 
 ### Log Evil Packets
@@ -37,12 +59,8 @@ Occasionaly your server will receive a network packet containing a so-called "im
 
 This setting logs suspicious packets to help you detect certain types of attacks that rely on spoofing addresses.
 
-[what is an evil packet vs. a martian?]
-[how do attackers leverage evil packets?]
-[what log?]
-[setting up alerting]
-
 ```conf
+# Log any packets that contain a bogus address (default = 0)
 net.ipv4.conf.all.log_martians = 1
 ```
 
@@ -51,7 +69,7 @@ net.ipv4.conf.all.log_martians = 1
 Certain kinds of kernel warning messages are rate-limited. This helps avoid clogging up your log (i.e., /var/log/messages), but sometimes the default settings make it hard to diagnose a scaling problem, or even an attack on your box. If you are seeing lots of lines in your log about messages being suppressed, and it isn't clear what the initial message was, you can try increasing the burst limit or decreasing the rate limit:
 
 ```conf
-# How many messages to allow through before throttling
+# Number of messages to allow before throttling
 kernel.printk_ratelimit_burst = 10
 
 # Minimum number of seconds to wait between logging each message (default 5 seconds)
@@ -61,6 +79,18 @@ kernel.printk_ratelimit = 5
 ## Latency Tweaks
 
 
+### Keep your processes hot
+
+If your workload is bursty, and you don't have a lot of RAM headroom on your box, the kernel will tend to swap out memory pages during idle periods. This can stall the first few requests that come in after a lull, since the kernel has to pull those pages back in from disk before it can serve the request.
+
+Ideally you can add more RAM to your box, but if not, you can encourage Linux to keep more pages resident with this setting:
+
+```conf
+# Discourage Linux from swapping idle server
+# processes to disk (default = 60)
+vm.swappiness = 10
+```
+
 ## Throughput Tweaks
 
 
@@ -68,17 +98,51 @@ kernel.printk_ratelimit = 5
 
 Web servers typically have to serve a large number of concurrent requests. The request rate hitting your server will grow and shrink constantly, and sometimes you'll have to handle some extraordinary bursts. To avoid simply dropping requests whenever the load on your server spikes and your website or app can't keep up, there are a few things you can do.
 
-First of all, you can increase the number of connection requests the server will queue before starting to drop subsequent connection attempts. The default is 128, which is far too low for a busy web server. You will want to increase the queue length to at least 1024, and you may go up to 50000 or even higher.
+### Let connections queue up
 
-What you choose for this setting will depend on the size of the traffic bursts you are seeing in production, and how quickly each burst can be resolved. The higher and wider the bursts, the longer the queue needs to be, to avoid dropping connection requests. You'll have to experiment to find the right setting for your particular server capacity and workload.
+The first thing you can do is increase the number of connection requests the server will queue before starting to drop subsequent connection attempts. The default is 128, which is far too low for a busy web server. You will want to increase the queue length to at least 1024, and you may need to go as high as 50000.
 
+What you choose for this setting will depend on the size of the traffic bursts you expect to handle, and how quickly each burst can be resolved. The higher and wider the bursts, the longer the queue will need to be in order to avoid dropping connection requests. You'll have to experiment to find the right setting for your particular server capacity and workload.
 
 ```conf
+# Obsorb traffic bursts by allowing a large number
+# of connection requests to queue up before starting
+# to drop any (default = 128).
 net.core.somaxconn = 50000
 ```
 
+### Allow more HTTP connections to be negotiated in parallel
+
+When establishing a TCP connection, a client sends a SYN packet to the server. The server then responds with a SYN-ACK packet and places the unestablished connection in a queue while it waits for the client to respond with the final ACK.
+
+If you have a lot of concurrent HTTP connection requests, the connection handshake may fail if the SYN queue fills up. This can happen when the server recieves a spike in requests and is not able to establish connections fast enough to keep up. 
+
+Depending on how much "buffer" your server requires to handle traffic spikes, you may want to increase the SYN backlog considerably from its meager default of 1024:
+
+```conf
+# Allow more connections to queue up while awaiting 
+# the final ACK from the client (default 1024).
+net.ipv4.tcp_max_syn_backlog = 30000
+```
+
+### Something else
+
+# increase Linux auto tuning TCP buffer limits
+#net.core.rmem_max = 8388608
+#net.core.wmem_max = 8388608
+#net.core.netdev_max_backlog = 5000
+#net.ipv4.tcp_window_scaling = 1
+
+```conf
+# Increase the length of the network device input queue
+net.core.netdev_max_backlog = 5000
+```
 --
 
+tcp_synack_retries
+http://www.ndchost.com/wiki/server-administration/hardening-tcpip-syn-flood
+
+SYN - way to keep indefinitely?
 
 lots of data
 
@@ -95,24 +159,11 @@ load generator
 p.s - which ones to use these on load generator (call out subset)
 
 
-
-# Discourage Linux from swapping idle server processes to disk (default = 60)
-vm.swappiness = 10
-
-
 # --------------------------------------------------------------------
 # The following allow the server to handle lots of connection requests
 # --------------------------------------------------------------------
 
-# Increase number of incoming connections that can queue up
-# before dropping
-net.core.somaxconn = 50000
 
-# Handle SYN floods and large numbers of valid HTTPS connections
-net.ipv4.tcp_max_syn_backlog = 30000
-
-# Increase the length of the network device input queue
-net.core.netdev_max_backlog = 5000
 
 # Increase system file descriptor limit so we will (probably)
 # never run out under lots of concurrent requests.
