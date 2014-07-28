@@ -1,7 +1,6 @@
 {% extends 'layout.html' %}
 
-
-{% set title = post.title %}
+{% set title = item.title ~ ' : Blog' %}
 
 {% block content %}
 <div class="item">
@@ -26,12 +25,12 @@
   </div>
 
   <div class="header">
-    <h1>{{ post.title }} </h1>
-    <h2>{{ post.date }}{% if post.tags %} <span>&raquo;</span> {% for tag in post.tags %}<a href="{{ get_url(tags[tag].url) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</h2>
+    <h1>{{ item.title }} </h1>
+    <h2>{% if not item.nodate %}{{ item.date }}{% endif %}{% if item.tags %} <span>&raquo;</span> {% for tag in item.tags %}<a href="{{ get_url(posts.tags[tag].url) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</h2>
   </div>
 
   <div class="body">
-    {{ post.content }}
+    {{ item.content }}
   </div>
 
   <script type="text/javascript">
@@ -43,13 +42,13 @@
   </script>
 
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-{% if post.id %}
+{% if item.id %}
 
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname = 'fluffywhitestuff';
-    var disqus_identifier = '{{ post.id }}';
-    var disqus_url = 'http://blog.kgriffs.com{{ post.url }}';
+    var disqus_identifier = '{{ item.id }}';
+    var disqus_url = 'http://blog.kgriffs.com{{ item.url }}';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
