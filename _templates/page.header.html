@@ -7,7 +7,7 @@
 <link rel="icon" href="{{ get_asset('images/favicon.ico') }}" type="image/x-icon">
 <link rel="icon" href="{{ get_asset('images/favicon.gif') }}" type="image/gif">
 
-{% if site.feed %}<link rel="alternate" type="application/atom+xml" title="Feed for blog.kgriffs.com" href="http://feeds.feedblitz.com/kgriffs" >{% endif %}
+{% if site.feed %}<link rel="alternate" type="application/atom+xml" title="Feed for blog.kgriffs.com" href="{{ get_url('feed.xml') }}" >{% endif %}
 
 <link href='http://fonts.googleapis.com/css?family=Londrina+Shadow|PT+Sans:400,700,400italic,700italic|Annie+Use+Your+Telescope|Chelsea+Market' rel='stylesheet'>
 
