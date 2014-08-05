@@ -372,9 +372,9 @@ span.mono {
 
 div.item {
   img {
-    float:right;
-    border:0;
-    margin:0; }
+    float: right;
+    border: 0;
+    margin: 0; }
 
   img.inline {
     float: none;
@@ -383,6 +383,7 @@ div.item {
   img.left {
     float: left;
     margin-right: 5px;
+    margin-top: 3px;
   }
   img.center {
     float: none;
