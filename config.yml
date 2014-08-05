@@ -74,4 +74,4 @@ jinja:
 tag_layout: tag.html
 tags_url: /tags/
 
-posts_url: /<year>/<month>/<day>/<title>.html
+posts_url: /<year>/<month>/<day>/<slug>
