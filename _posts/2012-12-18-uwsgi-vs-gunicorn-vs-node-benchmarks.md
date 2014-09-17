@@ -2,7 +2,7 @@
 layout: post.html
 title: "uWSGI vs. Gunicorn, or How to Make Python Go Faster than Node"
 summary: In which I pit uWSGI against Gunicorn and stumble upon a Python stack that leaves Node.js begging for mercy.
-tags: [Science Projects]
+tags: [performance]
 id: E3F16CBC-4547-11E2-8358-68BBD1B0F3CE
 ---
 

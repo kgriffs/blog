@@ -2,7 +2,7 @@
 layout: post.html
 title: "Painless Py3K Unicode Magic"
 summary: Implementing Python's magic string methods is tricky when it comes to Unicode characters and Py3K compatibility. I recently came across this problem in OpenStack, and wanted to share the strategy we are using to work around the issue.
-tags: [codez]
+tags: [code]
 id: 86f0c668-676c-11e3-9218-5f2528d4383
 ---
 

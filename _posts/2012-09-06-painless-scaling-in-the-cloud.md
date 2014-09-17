@@ -2,7 +2,7 @@
 layout: post.html
 title: Painless Scaling in the Cloud
 summary: Scaling your web app or service is a nice problem to have, but just because you may never need to do it, doesn't mean you shouldn't plan for it.
-tags: [Essays]
+tags: [performance]
 id: 66447D28-EDFC-11E1-A556-6E52F4FE7012
 ---
 

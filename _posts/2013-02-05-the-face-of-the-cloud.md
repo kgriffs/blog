@@ -2,7 +2,7 @@
 layout: post.html
 title: "The Face of the Cloud"
 summary: "It's no coincidence that cloud computing and post-PC devices became popular at the same time. But why didn't all this happen years ago when tech heavyweights were pushing thin clients?"
-tags: [Essays]
+tags: [stuff]
 id: 2ece88ca-6fc5-11e2-847a-17d3257a7926
 ---
 

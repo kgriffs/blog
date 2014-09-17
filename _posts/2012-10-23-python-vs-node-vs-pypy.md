@@ -2,7 +2,7 @@
 layout: post.html
 title: Python vs. Node vs. PyPy
 summary: After playing around with recent versions of PyPy and Node.js, I've discovered some things that may surprise you.
-tags: [Science Projects]
+tags: [performance]
 id: A60C497E-FD13-11E1-B940-7C49F4FE7012
 ---
 

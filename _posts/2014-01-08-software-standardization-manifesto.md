@@ -2,7 +2,7 @@
 layout: post.html
 title: "Standardization Manifesto"
 summary: "Standardization is often promulgated as a worthy goal for teams and communities, but it must be recognized for what it is: a Platonic ideal."
-tags: [essays]
+tags: [community]
 ---
 
 Standardization is often promulgated as a worthy goal for teams and communities, but it must be recognized for what it is: a Platonic ideal. It is far more practical to simply constrain the number of options to a small number. Even then, you must be prepared to make an occasional exception simply to get the job done.

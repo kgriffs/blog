@@ -2,7 +2,7 @@
 layout: post.html
 title: "Falcon WSGI Framework: 0.1.8"
 summary: "Thanks to the hard work of a growing community of contributors, we were able to ship several long-awaited goodies, including request sinks, improved URI decoding, and custom error handlers."
-tags: [codez]
+tags: [code]
 ---
 
 I'm quite proud of the new Falcon 0.1.8 release. Thanks to our growing community of talented contributors, we were able to ship several long-awaited goodies, including request sinks, improved URI decoding, and custom error handlers.

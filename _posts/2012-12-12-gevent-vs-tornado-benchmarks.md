@@ -1,7 +1,7 @@
 ---
 layout: post.html
 title: Tornado vs. Gevent - Benchmarks
-tags: [Science Projects]
+tags: [performance]
 id: D070292E-25AA-1202-9238-0130128E45A1
 ---
 

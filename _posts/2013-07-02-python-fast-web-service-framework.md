@@ -2,7 +2,7 @@
 layout: post.html
 title: "An Unladen Web Framework"
 summary: Falcon is a new web framework for building efficient cloud APIs and stirring up controversy.
-tags: [codez]
+tags: [code]
 id: f254b484-e367-11e2-b38b-6a9145c3e185
 ---
 

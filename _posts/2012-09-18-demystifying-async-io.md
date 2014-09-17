@@ -2,7 +2,7 @@
 layout: post.html
 title: How Async I/O Works - And Sometimes Doesn't
 summary: Async I/O can be your best friend, or your worst enemy. The devil's in the details.
-tags: [Essays]
+tags: [performance]
 ---
 
 Five Guys sells awesome burgers and fries. I love their food. Each patty is hand-formed, grilled to order, and piled high with crazy toppings like A1, bacon, and green peppers. Ordering at Five Guys goes something like this:
