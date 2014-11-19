@@ -3,7 +3,6 @@ layout: post.html
 title: Open Minds for Open Discussions
 summary: "Mailing lists tend to dehumanize people, opening the door to subconscious (and conscious) social behaviors that are anything but constructive."
 tags: [community]
-id: 371307C1-91C2-467C-9BF7-C2CB3B0EA6D6
 ---
 
 I'm thinking about setting up a mailing list for the [Falcon web framework][1]. This seems like a good way to bring more people into the conversation, and it should help capture tribal knowledge for posterity.
