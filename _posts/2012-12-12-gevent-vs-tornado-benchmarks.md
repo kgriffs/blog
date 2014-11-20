@@ -122,8 +122,6 @@ All things considered, Gevent + Cython appears to be the best choice of platform
 
 In my next post, I'll share results from testing Gevent's web server against uWSGI, Gunicorn, and Node. Stay tuned...
 
-@kgriffs
-
 <ul class="footnotes">
   <li>
     <sup><a name="id-1.ftn" href="#id-1">1</a></sup> Judging by the stack trace, there was a native module/ctypes issue, related to <em>tornado.stack_context._StackContextWrapper</em>. It may have been related to Motor, but I can't say for sure pending further investigation.

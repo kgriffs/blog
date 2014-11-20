@@ -25,5 +25,3 @@ Third, applications were too hard to use, too hard to write, and too expensive t
 Free, extremely productive development tools and online documentation make it easy for anyone to get started writing apps. App stores take the pain out of deploying, updating, and charging for software. Backend services are hosted on pay-as-you-go clouds (which often have free tiers), so that even cash-strapped college kids can create apps with a compelling online experience. These apps are generally more specialized than their dinosaur ancestors, making modern software both easier to use, and less expensive. 
 
 The cloud is a vital part of the post-PC world. Cloud computing is essential not only for democratizing software development, but also for freeing the world's information. Let's have more of that.
-
-@kgriffs

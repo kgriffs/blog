@@ -80,6 +80,4 @@ UnicodeEncodeError: 'ascii' codec can't encode character u'\u20ac' in position 0
 
 Happy Hacking!
 
-@kgriffs
-
 <br>

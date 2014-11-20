@@ -95,5 +95,3 @@ You don't need to invest a lot of time and money setting up your CI pipeline. St
 By spending a little more time planning ahead, and by putting in place a trustworthy continuous integration and deployment pipeline, you have a good chance at avoiding sleepless nights and shattered relationships when your app blows up&mdash;and I sincerely hope it does.
 
 After all, that's a nice problem to have.
-
-@kgriffs

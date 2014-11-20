@@ -33,7 +33,5 @@ Once the Falcon mailing list is live, it will be interesting to see how this pla
 
 I'm hoping people will for the most part moderate themselves, behaving professionally and being cognizant of the way their words may be perceived. If we can all do that, while also assuming good intent when on the receiving end, we'll be well on our way to building a fantastic community around Falcon.
 
-@kgriffs
-
 [1]: http://falconframework.org/
 [2]: https://www.stephencovey.com/7habits/7habits-habit5.php

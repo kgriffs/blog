@@ -185,8 +185,6 @@ ms/req (max): 54.6
 
 There's still some work to do in order to get those outliers fully under control, but these initial results have me excited to see what else a little Lua love can do.
 
-@kgriffs
-
 <ul class="footnotes">
   <li>
     <sup><a name="id-1.ftn" href="#id-1">1</a></sup>Larger operations can typically be broken down into smaller ones in order to interleave multiple concurrent requests.

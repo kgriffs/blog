@@ -331,10 +331,16 @@ i, em {
   color: #333;
 }
 
+.next-prev {
+  margin-top: 2em;
+}
+
 ul.footnotes {
   color: $faded-color;
   margin-left: 0;
-  padding: 10px 0px 10px 0px;
+  margin-top: 2em;
+  padding: 3px;
+  background-color: #eee;
 
   sup {
     font-style: normal;

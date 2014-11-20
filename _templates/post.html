@@ -27,6 +27,16 @@
     {{ item.content }}
   </div>
 
+  <div class="next-prev">
+    {% if item.next %}
+    <a href="{{ item.next.url }}">&lArr; {{ item.next.title }}</a>
+    {% endif %}
+    {% if item.next and item.prev %}&nbsp;&nbsp;|&nbsp;&nbsp;{% endif %}
+    {% if item.prev %}
+    <a href="{{ item.prev.url }}">{{ item.prev.title }} &rArr;</a>
+    {% endif %}
+  </div>
+
   <script type="text/javascript">
     (function() {
       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;

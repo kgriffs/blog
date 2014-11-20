@@ -168,8 +168,6 @@ Finally, regarding blocking vs. non-blocking I/O frameworks, Gevent certainly ou
 
 The plot thickens...
 
-@kgriffs
-
 **Thanks** to June Rich for reading drafts of this.
 
 <ul class="footnotes">

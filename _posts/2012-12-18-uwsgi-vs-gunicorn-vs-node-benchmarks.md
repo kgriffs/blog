@@ -77,8 +77,6 @@ But what's more, with an optimized web framework and uWSGI on your side, it look
 
 Now that's something to think about.
 
-@kgriffs
-
 <ul class="footnotes">
   <li>
     <sup><a name="id-1.ftn" href="#id-1">1</a></sup> The term <em>pre-forking</em>, as used here, simply means that sockets are created before forking child processes, and that those sockets are inherited by the child processes so that they can directly bind to them, saving an extra hop.

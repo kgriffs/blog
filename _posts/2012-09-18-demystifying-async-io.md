@@ -72,8 +72,6 @@ Hardware limits us on what we can achieve using blocking I/O in a single thread 
 
 In other words, use the best tool for the job. :D
 
-@kgriffs
-
 <ul class="footnotes">
   <li>
     <sup><a name="id-1.ftn" href="#id-1">1</a></sup> Some operating systems use a push model instead, i.e., the kernel interrupts the

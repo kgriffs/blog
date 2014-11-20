@@ -17,9 +17,6 @@ In order to grow the cloud services market, **we must build a cloud that people 
 
 After all, they deserve nothing less.
 
-@kgriffs
-
-
 
 
 

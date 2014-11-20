@@ -42,8 +42,6 @@ Everyone has a responsibility to the broader community to defend their portion o
 
 *Caveat emptor: While I care deeply about computer security and have a working knowledge of the same, I'm no cryptographer. You should definitely invest some time into making your own evaluation of KDFs, including consulting with experts in the field to fully understand their proper use.*
 
-@kgriffs
-
 <ul class="footnotes">
   <li>
     <sup><a name="id-1.ftn" href="#id-1">1</a></sup>It's about time our industry got a wake up call.
