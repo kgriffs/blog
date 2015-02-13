@@ -2,11 +2,13 @@ When deploying a web head,
 
 
 new:
+http://www.ece.virginia.edu/cheetah/documents/papers/TCPlinux.pdf
 https://wiki.archlinux.org/index.php/Sysctl#TCP.2FIP_stack_hardening
 Below are some kernel tweaks that I use for CentOS 6.2 with a 10 GB NIC.
 http://www.linuxinstruction.com/?q=node/15
 https://www.frozentux.net/ipsysctl-tutorial/chunkyhtml/tcpvariables.html
 https://www.frozentux.net/ipsysctl-tutorial/chunkyhtml/theconfvariables.html
+http://blog.tsunanet.net/2011/03/out-of-socket-memory.html
 
 --
 
@@ -35,7 +37,7 @@ Using SYN cookies is one strategy for mitigating SYN floods. A SYN cookie allows
 Enable SYN cookies in the network stack using this option in *sysctl.conf*:
 
 ```conf
-# Enable SYN cookies to mitigate SYN flood 
+# Enable SYN cookies to mitigate SYN flood
 # attacks (default 0)
 net.ipv4.tcp_syncookies = 1
 ```
@@ -44,9 +46,9 @@ You can also reduce the impact of a SYN flood on the kernel's connection queue b
 
 ```conf
 # Reduce the number of times the server will retransmit the
-# SYN-ACK packet while waiting for a client to respond with 
-# the final ACK when negotiating a TCP connection (default 5). 
-# 
+# SYN-ACK packet while waiting for a client to respond with
+# the final ACK when negotiating a TCP connection (default 5).
+#
 # Each attempt will take around 30-40 seconds, so a value of
 # 2 will make unestablished connections time out after about
 # a minute.
@@ -115,12 +117,12 @@ net.core.somaxconn = 50000
 
 When establishing a TCP connection, a client sends a SYN packet to the server. The server then responds with a SYN-ACK packet and places the unestablished connection in a queue while it waits for the client to respond with the final ACK.
 
-If you have a lot of concurrent HTTP connection requests, the connection handshake may fail if the SYN queue fills up. This can happen when the server recieves a spike in requests and is not able to establish connections fast enough to keep up. 
+If you have a lot of concurrent HTTP connection requests, the connection handshake may fail if the SYN queue fills up. This can happen when the server recieves a spike in requests and is not able to establish connections fast enough to keep up.
 
 Depending on how much "buffer" your server requires to handle traffic spikes, you may want to increase the SYN backlog considerably from its meager default of 1024:
 
 ```conf
-# Allow more connections to queue up while awaiting 
+# Allow more connections to queue up while awaiting
 # the final ACK from the client (default 1024).
 net.ipv4.tcp_max_syn_backlog = 30000
 ```
