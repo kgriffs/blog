@@ -10,24 +10,38 @@ three:
 
     T = E + S + F 
 
-If you want to improve your organization's security posture, you won't
-have much success unless you work *with* your people, instead of *against*
-them. You need to sit down with them to find out what a day in their life
+Let's suppose Susan manages the IT department at Shinra Electric. She
+has become very concerned sbout security in light of all the highly-profile 
+attacks that have surfaced over the past couple of years. It is clear to
+Susan that it isn't *when* her company will be breached, but *when* (or 
+perhaps it has already happened, and they just don't know it.) All this
+puts Susan in a mood to dramatically improve Shinra's security posture. 
+
+Now, Susan isn't going to have much success unless she works *with* Shinra's
+people, instead of *against* them. 
+
+
+You need to sit down with them to find out what a day in their life
 is like. Take the time to understand not just their workflows, but also their
 concerns and motiviations.
 
 Then, you'll need to create an equilibrium between each individual's security 
 threshold and the pain (P) induced by the sum of all security measures
-deployed
+deployed (apologies to any mathematicians in the audience who's eyes are
+starting to bleed):
 
     T ≈ sum(P<sub>0</sub>...P<sub>n-1</sub>)
 
 
- . Ideally, we design solutions that minimize the pain[1], such
+Ideally, we design solutions that minimize the pain[1], such
 that the threshold does not have to be very high in most[2] cases. On the
 other hand, it would certainly be helpful to improve Rackers’ appreciation
 for security and their faith and trust in leadership. I think we need to
 tackle this issue from both angles.
+
+use cases
+product-oriented
+lean
 
 As Major pointed out, it is hard to get people to care more about security
 unless the’ve been burned in the past. You either learn by your own
