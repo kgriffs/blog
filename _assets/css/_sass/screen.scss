@@ -5,7 +5,7 @@ $header-font: 'Chelsea Market';
 $faded-color: black;
 $link-color-for-faded: #4d4d4d;
 $link-color-body: #d06e01;
-$separator-color: #d9d9d9;
+$separator-color: #999;
 
 //
 // BASE ELEMENTS
@@ -247,7 +247,7 @@ i, em {
 //
 #container {
   margin: 0px auto 0px auto;
-  width: 580px; }
+  width: 640px; }
 
 // NAV
 #nav {
@@ -338,16 +338,20 @@ i, em {
 ul.footnotes {
   color: $faded-color;
   margin-left: 0;
-  margin-top: 2em;
+  margin-top: 1.5em;
   padding: 3px;
   background-color: #eee;
 
+  border-top: 1px solid $separator-color;
+  border-bottom: 1px solid $separator-color;
+
   sup {
     font-style: normal;
+    padding-right: 2px;
   }
 
   li {
-    line-height: 1em;
+    line-height: 1.2em;
 
     &:before {
       padding: 0px;
