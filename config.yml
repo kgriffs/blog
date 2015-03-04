@@ -23,7 +23,7 @@ domain: blog.kgriffs.com
 # Used in header meta tags and the site feed.
 author: Kurt Griffiths
 # A description of your site to be used in header meta tags.
-description: The cloud movement significantly changes the nature of applications. Apps are no longer serfs hiding inside inpeneratable castles. You've now got to design connected agents, personal assistants, and social butterflies. And it all has to be elastic and scalable.
+description: "This is my blog about building software for humans, not the other way around. We need software that is better-designed, more secure, faster, and far more reliable than we have today."
 # Used in the site feed.
 email: mail@kgriffs.com
 # Your site's subtitle.
