@@ -1,60 +1,31 @@
-There’s an interesting interplay between a person’s:
+---
+layout: post.html
+title: Security for Humans
+summary: The last thing you want to do is demonize your users. This only sets the stage for a security cold war. Instead, shift the burden to design-time. Find ways to defend against threats without hamstringing your users, and they will love you for it.
+tags: [security]
+---
 
-* Desire to be productive (E)
+Lately I've been thinking about an interesting interplay between a person’s:
+
+* Desire to be productive (D)
 * Appreciation for security (S)
-* Faith in leadership (F)
-* Pain threshold for security measures (T)
+* Faith in those who are implementing security measures (F)
+* Pain threshold for said security measures (T)
 
-Where a person’s security threshold is equal to some measure of the other
-three:
+Where an individual's security threshold is equal to some measure of the other three:
 
-    T = E + S + F 
+    T = S + F - D
 
-Let's suppose Susan manages the IT department at Shinra Electric. She
-has become very concerned sbout security in light of all the highly-profile 
-attacks that have surfaced over the past couple of years. It is clear to
-Susan that it isn't *when* her company will be breached, but *when* (or 
-perhaps it has already happened, and they just don't know it.) All this
-puts Susan in a mood to dramatically improve Shinra's security posture. 
+When designing any system, the amount of pain (degradation to the user's experience) caused by security controls is simply the sum of the parts:
 
-Now, Susan isn't going to have much success unless she works *with* Shinra's
-people, instead of *against* them. 
+    P = sum(pain(c) for c in controls)
 
+Ideally, we want to create systems where the pain introduced by security controls does not exceed the threshold of its users:
 
-You need to sit down with them to find out what a day in their life
-is like. Take the time to understand not just their workflows, but also their
-concerns and motiviations.
+    P <= T
 
-Then, you'll need to create an equilibrium between each individual's security 
-threshold and the pain (P) induced by the sum of all security measures
-deployed (apologies to any mathematicians in the audience who's eyes are
-starting to bleed):
+It's tempting to become fixated on the right side of the equation. "The problem is the users."  Why? Because reducing (P) is hard. It requires taking the time to do thorough risk analysis. You have to get creative with the architecture. You may have to ask for funding. Not to mention, you often have to collaborate across organizational and functional boundaries to get the job done.
 
-    T ≈ sum(P<sub>0</sub>...P<sub>n-1</sub>)
+I don't mean to say that working on (T) is completely wrong; in fact, you really should strive to engender a healthy understanding of&mdash;and appreciation for&mdash;security in your community (be it internal or external), working to build relationships of trust between those implementing security measures and those affected by those measures. My point is that you need to work on (P) at least as much, if not more, than (T). The problem with betting too much on (T) is that it lies in the realm of culture. Changing culture is a slow and difficult process. And if you push too hard, your efforts always backfire. 
 
-
-Ideally, we design solutions that minimize the pain[1], such
-that the threshold does not have to be very high in most[2] cases. On the
-other hand, it would certainly be helpful to improve Rackers’ appreciation
-for security and their faith and trust in leadership. I think we need to
-tackle this issue from both angles.
-
-use cases
-product-oriented
-lean
-
-As Major pointed out, it is hard to get people to care more about security
-unless the’ve been burned in the past. You either learn by your own
-experience why it’s important, or you decide to trust someone else’s
-experience. One way that I’ve seen this work is by utilizing people’s
-sense of tribes. Suppose you have a group that contains a 1-2 security
-“champions” who are also respected leaders and mentors within said group.
-If I look up to Susan and Susan cares about security, I’m more likely to
-care about security myself. But I think the larger the group, the more
-this effect is diluted. E.g., Brian Kelly can beat the drum all day long,
-but Joe Racker who doesn’t know Brian very well (or at all) isn’t going to
-get very pumped about security. Especially if nobody asked him before
-rolling something out that made is job a PITA.
-
-Anyway, we need to figure out how we as TCT members can make a difference,
-and then go do that. :)
+The last thing you want to do is demonize your users. This only sets the stage for a security cold war. Instead, shift the burden to design-time. Find ways to defend against threats without hamstringing your users, and they will love you for it.
