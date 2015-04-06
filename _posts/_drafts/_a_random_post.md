@@ -1,3 +1,5 @@
+If you ever need a random string to use in an example or 
+
 Sometimes you just need some random bits (why?). It's pretty easy to just grab some from `dev/urandom`, but what if you need a string? (why?)
 
 http://www.2uo.de/myths-about-urandom/

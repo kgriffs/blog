@@ -2,8 +2,12 @@ When deploying a web head,
 
 
 new:
+http://www.brendangregg.com/blog/2015-03-03/performance-tuning-linux-instances-on-ec2.html
+
 http://www.ece.virginia.edu/cheetah/documents/papers/TCPlinux.pdf
 https://wiki.archlinux.org/index.php/Sysctl#TCP.2FIP_stack_hardening
+
+
 Below are some kernel tweaks that I use for CentOS 6.2 with a 10 GB NIC.
 http://www.linuxinstruction.com/?q=node/15
 https://www.frozentux.net/ipsysctl-tutorial/chunkyhtml/tcpvariables.html
