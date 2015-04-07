@@ -1,7 +1,7 @@
 ---
 layout: post.html
 title: Security for Humans
-summary: The last thing you want to do is demonize your users. This only sets the stage for a security cold war. Instead, shift the burden to design-time. Find ways to defend against threats without hamstringing your users, and they will love you for it.
+summary: Don't demonize your users. This only sets the stage for a security cold war. Instead, shift the burden to design-time. Find ways to defend against threats without hamstringing your users, and they will love you for it.
 tags: [security]
 ---
 
@@ -24,8 +24,9 @@ Ideally, we want to create systems where the pain introduced by security control
 
     P <= T
 
-It's tempting to become fixated on the right side of the equation. "The problem is the users."  Why? Because reducing (P) is hard. It requires taking the time to do thorough risk analysis. You have to get creative with the architecture. You may have to ask for funding. Not to mention, you often have to collaborate across organizational and functional boundaries to get the job done.
+It's tempting to become fixated on the right side of the equation, i.e., "the users are the problem."  Why? Because reducing (P) is hard. It requires formal threat modeling, creative architecture, and sufficient funding.
 
-I don't mean to say that working on (T) is completely wrong; in fact, you really should strive to engender a healthy understanding of&mdash;and appreciation for&mdash;security in your community (be it internal or external), working to build relationships of trust between those implementing security measures and those affected by those measures. My point is that you need to work on (P) at least as much, if not more, than (T). The problem with betting too much on (T) is that it lies in the realm of culture. Changing culture is a slow and difficult process. And if you push too hard, your efforts always backfire. 
+I don't mean to say that working on (T) is completely wrong; in fact, you should absolutely strive to engender a healthy appreciation for security, and work to build relationships of trust between those implementing security measures and those affected by said measures. However, to be successful you'll need to dig in and get to work on (P) as well. The problem with betting too much on (T) is that it lies in the realm of culture. Changing culture is a slow and difficult process. And it's a process that can easily backfire.
 
-The last thing you want to do is demonize your users. This only sets the stage for a security cold war. Instead, shift the burden to design-time. Find ways to defend against threats without hamstringing your users, and they will love you for it.
+Don't demonize your users. This only sets the stage for a security cold war. Instead, shift the burden to design-time. Find ways to defend against threats without hamstringing users, and they will love you for it.
+
