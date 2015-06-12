@@ -6,7 +6,7 @@ import md5
 import keyring
 import cloudfiles
 
-source_path = sys.argv[1]
+source_path = sys.argv[1] if len(sys.argv) == 2 else '../blog-generated/'
 
 pwd = keyring.get_password('Cloud Files', 'kgriffs')
 

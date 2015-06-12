@@ -1,0 +1,82 @@
+==================================================================
+https://keybase.io/kgriffs
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://blog.kgriffs.com
+  * I am kgriffs (https://keybase.io/kgriffs) on keybase.
+  * I have a public key with fingerprint 40FC F508 2411 FE84 25B2  4387 717B 1897 9940 65EF
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.7.9"
+        },
+        "key": {
+            "fingerprint": "40fcf5082411fe8425b24387717b1897994065ef",
+            "host": "keybase.io",
+            "key_id": "717B1897994065EF",
+            "uid": "63feb7c046ff4cc827e34fd04e40a219",
+            "username": "kgriffs"
+        },
+        "merkle_root": {
+            "ctime": 1434118388,
+            "hash": "2171ec1b68ae39ee70a14e792aa16c0cdb66807bbb4a2853f8f9596c042556dbce4b56c10f1982b13fef0a3bb17eb306ee710b7aa8b891f760579f5b48d2ac93",
+            "seqno": 245655
+        },
+        "service": {
+            "hostname": "blog.kgriffs.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1434119270,
+    "expire_in": 157680000,
+    "prev": "6ac0d80e551479c4de28d7238b671ca80bbac96585fc00d9914e9d283ad7a0b5",
+    "seqno": 9,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Comment: GPGTools - https://gpgtools.org
+
+owFVknlMFGcYxhcpWEBgOZSj0tIxjU1Z17mPlQouVBNiapoe1Fpd55v5hh2One3s
+giwIAcqdllOBFKUxTWOpB1A2aBXaSjG1UJFe2FA0StrgAaQY0tiKoTMEY52/Zub9
+vc/3PO/7NQT7GgJ97Ckb5VNpZL7PyG1geLNgJr8QAYroQSyFiJAtQ4dbf3PwORCx
+IFnQA3gXNMtKvEMRoTnTFb/CmJA8qLpkxaFRqJkxc0iRScf1Zkl2ZEDVqcq6FkKi
+kiBRKIuTGCZBlsQpgJMEyzAYAzCWYziORGkKSpqkXXG5nzgVWda0yaL2V+Otj/lX
+tmu13OUCTUgQMAJK0pJECgKLM5AgJRElIYnyOMbpoAuqjyJlqLIkuXS7OVDNyoY2
+VVGWMwtuWScwktCcsgTLaoZ4l13rwTEGgwIGaJaHBAchg/IYCRkO53mMFlBBBDTN
+ogwAgORxliIkVuIoTqtoYSlaBAIkAUULGCphHIsDTDMsoTwBAMZAQKC0poihgOF5
+FrAcJjE0SjGcRAGSFXFe4AgtgQu+51AQC05SNEUV6d9qnixA3bc+tZVwIFvJMK8k
+NAtKjtboVBW3IijZWtXudjstenC3x6nTB7ohsK0I2YDsELW9/X+xmIY+MRQOZ1AT
+AvOdsgptsk5QjBZce/RzYJ6+DF5ARRaFFIWRDCeQIsRZkcEJFtAMJvAsCoCWiKZY
+ShJQVOQ4bZCciLMELzI8CqjHUTnNJ5+hSbrkDAfvzlUhUlSzav1TBp9Ag7/fKv3m
+GgIDjI+uc8E3RkPz3LWGy/7bqrdWR3698OpfY11fjS0KzKXjRRMF/6yrXj053ukM
+WD/aurXAUl41jUTP2PEGb7+5K3SX/UGTydo7VdqRaWx3B+RHvGhdmn62viXo7b7e
+b22n4aFzxaMTIr7J59DFRs+a3irjjRryzPDRPTe7+ISw9jvf1yFpa2fv7t7bffZm
+XfLDqL/VMyVLJTuP5AQtREx3WzLPjxyI6a/v3RM9EHLbNBBhes3MD4VeLxP7lKFN
+3p2+C/2f+VbdMp5btzlwy6DBPJL4fOwPx+YHTjSUNZV4PmzpbgstCE97edvivn1/
+TpaF5GW2G8MjB38NDts4VfN64Xh17HcRJfuvfGGI41CfN9xp9ergrYQO/GAr2uUB
+w01FfTER/iHyvyEdG5JO7hizHZxbTcenCOF3Wr336wbismJK8WfqLNXm0KsX2kfj
+rjWtnZ1IGsLuktMzlrKx36eSieTalu7x3dKnJ83G4tz5dPbL38ANW1ezNbAKXm3c
+cbh5+73ZnopdXvdex3ORpR9cr5+b7LlfMbyl7XB6HTXYVnmv+/OHyKnixAcnXqIv
+Xn4hKnWx86zfhk/C3mpM9Za/n30cW0rYn/JuD3X0UsWiZzy6KymdS/0DWWpP7FRO
+j9Z+nBtceX60UtpsTXGt6fmFsM5PW+HPT2MXgmpjU8rfOaY2+0X9tOrKj0eIj0iv
+q/g/
+=f+JU
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/kgriffs
+
+==================================================================
