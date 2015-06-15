@@ -8,4 +8,4 @@ popd
 
 mynt gen -f $DEST
 cp keybase.txt $DEST
-cp _assets/images/favicon.* $DEST
+

@@ -62,6 +62,9 @@ social:
     steam:
     twitter: kgriffs
 
+include: 
+    - '*.png'
+    - '*.ico'
 
 #
 # Chances are you probably don't need to touch anything below here.
