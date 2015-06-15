@@ -5,7 +5,7 @@ summary: "Version 0.3 of the Falcon WSGI framework is now available, thanks to a
 tags: [code]
 ---
 
-<img class="left" src="/assets/images/falcon-sprint-pycon-2015.JPG" alt="Falcon web framework - PyCon 2015 sprint" width="100" height="75" />
+<img class="left" src="/assets/images/falcon-sprint-pycon-2015.jpg" alt="Falcon web framework - PyCon 2015 sprint" width="100" height="75" />
 
 Version 0.3 of the Falcon WSGI framework is now available, thanks to all the hard work put in by our growing team of stylish and talented contributors. Extra special thanks to everyone who joined us at the PyCon 2015 sprint in Montreal!
 
