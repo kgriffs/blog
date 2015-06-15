@@ -52,7 +52,7 @@ def find(path, return_values, expressions, params):
 
 ```
 
-This provides an extra boost of performance by avoiding looping constructs and dict lookups. There are still a few minor performance optimizations that could be made It's especially fast when JITed under PyPy.
+This provides an extra boost of performance by avoiding looping constructs and dict lookups. It's especially fast when JITed under PyPy.
 
 ## New URI Template Feature
 
