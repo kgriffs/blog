@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
     &:hover {
       text-decoration: none; } } }
 
-h2, h3 {
+h2 {
   padding-bottom: 5px;}
 
 h4, h5, h6 {
@@ -110,7 +110,9 @@ h2 {
 }
 
 h3 {
-  font-size: 14px; }
+  font-size: 17px;
+  margin: 25px 0 -5px 0;
+}
 
 h4 {
   font-size: 14px; }
@@ -155,15 +157,28 @@ li {
 
 pre, code {
   font: {
-    family: "Envy Code R", monospace;
-    size: 10pt; }; }
+    family: "Inconsolata", monospace;
+    size: 11pt;
+  };
+}
+
+code {
+  font: {
+    weight: bold;
+  }
+
+  // padding: 1px 4px 1px 4px;
+  // background-color: rgba(0, 0, 0, 0.1);
+  // border: 1px solid $separator-color;
+  white-space: pre;
+}
 
 pre {
-  padding: 5px;
+  padding: 0.62em 5px;
   background-color: #2b2e23;
   color: #b2b99e;
   code {
-    padding: 0px;
+    // padding: 0px;
     background-color: transparent;
     border-width: 0px;
     @include box-shadow(none);
@@ -216,13 +231,6 @@ a {
 
   &:hover {
     text-decoration: underline; } }
-
-code {
-  padding: 1px 4px 1px 4px;
-  background-color: rgba(255, 255, 255, 0.5);
-  // border: 1px solid $separator-color;
-  white-space: pre;
-}
 
 small {
   display: block;
