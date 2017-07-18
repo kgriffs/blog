@@ -56,13 +56,13 @@ social:
     dribbble:
     facebook:
     github: kgriffs
-    google_plus: 101128010261665489254
+    google_plus:
     lastfm:
     stack_overflow:
     steam:
     twitter: kgriffs
 
-include: 
+include:
     - '*.png'
     - '*.ico'
 
