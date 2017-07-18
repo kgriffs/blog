@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-DEST=../blog-generated/
+DEST=public/
+
+rm -rf $DEST
+mkdir $DEST
 
 pushd _assets/css/_sass/
 compass compile
@@ -8,4 +11,5 @@ popd
 
 mynt gen -f $DEST
 cp keybase.txt $DEST
+cp 404.html $DEST
 
