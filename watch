@@ -1,2 +1,8 @@
 #!/usr/bin/env bash
-mynt watch -f ../blog-generated
+
+DEST=public/
+
+rm -rf $DEST
+mkdir $DEST
+
+mynt watch -f $DEST
