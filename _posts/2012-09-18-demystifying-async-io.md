@@ -1,13 +1,13 @@
 ---
 layout: post.html
-title: How Async I/O Works - And Sometimes Doesn't
+title: How Async I/O Works
 summary: Async I/O can be your best friend, or your worst enemy. The devil's in the details.
 tags: [performance]
 ---
 
-Five Guys sells awesome burgers and fries. I love their food. Each patty is hand-formed, grilled to order, and piled high with crazy toppings like A1, bacon, and green peppers. Ordering at Five Guys goes something like this:
+Five Guys sells awesome burgers and fries. Each patty is hand-formed, grilled to order, and piled high with crazy toppings like A1, bacon, and green peppers. Ordering at Five Guys goes something like this:
 
-<img src="/assets/images/hacking-table.png" alt="Hacking @ Five Guys" />
+<img src="/assets/images/hacking-table.png" width="100px" alt="Hacking @ Five Guys" />
 
 1. You tell Nice Person at the counter what you want to eat.
 1. Nice Person hands you a receipt with a number on it.
@@ -28,7 +28,7 @@ Async I/O works in a similar way:
 
 Here's an illustration to help visualize what's happening:
 
-<img class="center" src="/assets/images/async-io.png" alt="Async I/O - Illustration" />
+<img class="center" src="/assets/images/async-io.png" width="300px" alt="Async I/O - Illustration" />
 
 Here we have a (very simplified) execution thread and a fancy box representing the operating system. The thread issues I/O request (1), but since the request is asynchronous, the thread continues working while it waits for the results from (1). In the meantime, the thread issues a second I/O request (2). Eventually, (2) completes, followed closely by (1), generating two I/O events from the kernel. The thread acts on these event, reading the results from first (2), then (1).
 
@@ -44,7 +44,7 @@ When a thread uses blocking I/O calls, the process looks something like this:
 
 Now, contrast the blocking I/O illustration below with the one for async I/O:
 
-<img class="center" src="/assets/images/blocking-io.png" alt="Blocking I/O - Illustration" />
+<img class="center" src="/assets/images/blocking-io.png" width="300px" alt="Blocking I/O - Illustration" />
 
 The thread sits idle after issuing I/O request (1). When (1) completes, the thread is allowed to continue its work and issue request (2). Again, this pauses the thread, and the operating system only allows the thread to continue when (2) is complete.
 
@@ -53,8 +53,6 @@ Although blocking I/O is super-simple to use and understand (hooray!), it preven
 One way of solving the problem is to spawn several worker threads<sup><a name="id-2" href="#id-2.ftn">2</a></sup>. For example, you might create two threads, which I'll cleverly name *Thread A* and *Thread B*. These threads listen for incoming HTTP requests. When Client A connects to Thread A, Thread A blocks while it waits for the kernel to read data from the NIC. Meanwhile, Thread B accepts a connection from Client B and starts servicing it. Now that both threads are busy, what happens when a third client wants to talk? Tragically, the kernel is forced to hold the third request in a queue until one of the threads is free. If too many requests pile up, they will time out before they reach the other end of the queue. Worse, if requests continue to arrive faster than they can be processed, the kernel's queue will eventually fill up, causing the system to block all new connections to the box.
 
 This would be like Five Guys forcing me to stand in line while every single order, for every single person in front of me, is cooked and bagged. Sure, I can check Facebook on my iPhone while I wait, but that hardly counts as being productive. Eventually, I may get so frustrated at waiting that I give up and walk out. This is not good for business (unless you happen to manage the restaurant next door).
-
-<img src="/assets/images/rose.png" alt="Rose" />
 
 In situations like these, asynchronous I/O is exactly what you need. In the above scenario, async functions allow each thread to continue accepting requests, while waiting for bits to travel over the wire. In this way, requests are multiplexed across individual threads of execution, so they spend a lot less time sitting idle, and a lot more time warming the CPU. More clients are served more quickly, with lower latency.
 
@@ -69,8 +67,6 @@ Some apps, on the other hand, spend most of their time running algorithms and cr
 # Trade-offs #
 
 Hardware limits us on what we can achieve using blocking I/O in a single thread of execution, so we have to invent ways of simulating concurrent execution. No approach is perfect; it's important to realize this, and research the trade-offs involved in each approach, so that we can make better design decisions.
-
-In other words, use the best tool for the job. :D
 
 <ul class="footnotes">
   <li>

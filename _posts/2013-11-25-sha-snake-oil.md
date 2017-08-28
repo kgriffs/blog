@@ -11,7 +11,7 @@ This is serious stuff, considering that people tend to reuse the same password e
 
 # Naive Password Hashing #
 
-<img class="right" src="/assets/images/sha-digest-cure.gif" width="100px" alt="Message digest algorithms such as SHA don't solve everything." />
+<img class="right" src="/assets/images/sha-digest-cure.gif" width="80px" alt="Message digest algorithms such as SHA don't solve everything." />
 
 In the wake of these attacks, a movement began<sup><a name="id-1" href="#id-1.ftn">1</a></sup> to stop storing passwords in such a blatantly insecure way. In some circles, using a simple salted SHA was promulgated as the "best practice" fix. While certainly better than storing passwords in plaintext, or hashing them with MD5, there are other, more appropriate algorithms we should be promoting instead.
 
@@ -29,7 +29,7 @@ When asking people to move away from plaintext and MD5, we should be encouraging
 
 That way, we make the black hats sad.
 
-<img class="block" src="/assets/images/digest-vs-kdf.gif" width="100%" alt="Use a KDF to turn a happy black hat into a sad one." />
+<img class="center" src="/assets/images/digest-vs-kdf.gif" width="400px" alt="Use a KDF to turn a happy black hat into a sad one." />
 
 Here are my (current) go-to KDFs:
 

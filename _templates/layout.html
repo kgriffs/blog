@@ -20,14 +20,17 @@
 
       {% if site.social.values()|sort(true)|first %}
       <ul id="social">
-        {% if site.social.dribbble %}<li><a href="http://dribbble.com/{{ site.social.dribbble }}"><img src="{{ get_asset('images/social/dribbble.png') }}" width="16" height="16" alt="Dribbble"></a></li>{% endif %}
-        {% if site.social.facebook %}<li><a href="https://www.facebook.com/{{ site.social.facebook }}"><img src="{{ get_asset('images/social/facebook.png') }}" width="16" height="16" alt="Facebook"></a></li>{% endif %}
-        {% if site.social.github %}<li><a href="https://github.com/{{ site.social.github }}"><img src="{{ get_asset('images/social/github.png') }}" width="16" height="16" alt="GitHub"></a></li>{% endif %}
-        {% if site.social.google_plus %}<li><a href="https://plus.google.com/{{ site.social.google_plus }}"><img src="{{ get_asset('images/social/google-plus.png') }}" width="16" height="16" alt="Google+"></a></li>{% endif %}
-        {% if site.social.lastfm %}<li><a href="http://www.last.fm/user/{{ site.social.lastfm }}"><img src="{{ get_asset('images/social/lastfm.png') }}" width="16" height="16" alt="Last.fm"></a></li>{% endif %}
-        {% if site.social.stack_overflow %}<li><a href="http://stackoverflow.com/users/{{ site.social.stack_overflow }}"><img src="{{ get_asset('images/social/stack-overflow.png') }}" width="16" height="16" alt="Stack Overflow"></a></li>{% endif %}
-        {% if site.social.steam %}<li><a href="http://steamcommunity.com/id/{{ site.social.steam }}"><img src="{{ get_asset('images/social/steam.png') }}" width="16" height="16" alt="Steam"></a></li>{% endif %}
-        {% if site.social.twitter %}<li><a href="https://twitter.com/#!/{{ site.social.twitter }}"><img src="{{ get_asset('images/social/twitter.png') }}" width="16" height="16" alt="Twitter"></a></li>{% endif %}
+        {% if site.social.dribbble %}<li><a href="http://dribbble.com/{{ site.social.dribbble }}"><img src="{{ get_asset('images/social/dribbble.png') }}" width="18" height="18" alt="Dribbble"></a></li>{% endif %}
+        {% if site.social.facebook %}<li><a href="https://www.facebook.com/{{ site.social.facebook }}"><img src="{{ get_asset('images/social/facebook.png') }}" width="18" height="18" alt="Facebook"></a></li>{% endif %}
+        
+        {% if site.social.github %}<li><a href="https://github.com/{{ site.social.github }}"><img src="{{ get_asset('images/social/github.png') }}" width="18" height="18" alt="GitHub"></a></li>{% endif %}
+
+        {% if site.social.google_plus %}<li><a href="https://plus.google.com/{{ site.social.google_plus }}"><img src="{{ get_asset('images/social/google-plus.png') }}" width="18" height="18" alt="Google+"></a></li>{% endif %}
+        {% if site.social.lastfm %}<li><a href="http://www.last.fm/user/{{ site.social.lastfm }}"><img src="{{ get_asset('images/social/lastfm.png') }}" width="18" height="18" alt="Last.fm"></a></li>{% endif %}
+        {% if site.social.stack_overflow %}<li><a href="http://stackoverflow.com/users/{{ site.social.stack_overflow }}"><img src="{{ get_asset('images/social/stack-overflow.png') }}" width="18" height="18" alt="Stack Overflow"></a></li>{% endif %}
+        {% if site.social.steam %}<li><a href="http://steamcommunity.com/id/{{ site.social.steam }}"><img src="{{ get_asset('images/social/steam.png') }}" width="18" height="18" alt="Steam"></a></li>{% endif %}
+
+        {% if site.social.twitter %}<li><a href="https://twitter.com/#!/{{ site.social.twitter }}"><img src="{{ get_asset('images/social/twitter.svg') }}" width="18" height="18" alt="Twitter"></a></li>{% endif %}
       </ul>
       {% endif %}
     </div>
@@ -56,10 +59,10 @@
     <div id="footer">
       <p>
 <!--         {% if site.author %}Copyright &copy; {{ none|date('%Y') }} {{ site.author }} &ndash; {% endif %}
- -->        powered by <a href="http://mynt.mirroredwhite.com/">mynt</a>
+ -->        Powered by <a href="http://mynt.mirroredwhite.com/">mynt</a>
       </p>
       <p>
-        Disclaimer: The posts on this site are my own (Kurt Griffiths) and don’t necessarily represent the positions, strategies, or opinions of my employer (Rackspace Hosting, Inc.)
+        Disclaimer: The posts on this site are my own (Kurt Griffiths) and don’t represent the positions, strategies, or opinions of my current or past employers.
       </p>
       <p>
         This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>. <br/><br/><a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png"/></a>

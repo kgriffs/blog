@@ -11,7 +11,7 @@ I don't think chaos is the answer, where you end up with everyone doing somethin
 
 It's important to use the right tool for the job. And if the tool doesn't exist, who's to say it shouldn't be created?
 
-<img class="block" width="550px" height="586px" src="/assets/images/community-software-standardization.png" alt="Total standardization within software communications is a fool's errand."/>
+<img class="center" width="500px"src="/assets/images/community-software-standardization.png" alt="Total standardization within software communications is a fool's errand."/>
 
 There are simply too many compromises&mdash;both in terms of community dynamics and software functionality&mdash;that have to be made in order to force everyone to use One Thing. In fact, the more code, people, and projects you have, the more compromises you will be forced to make.
 

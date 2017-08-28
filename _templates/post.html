@@ -6,16 +6,10 @@
 <div class="item">
   <div id="sidebar">
     <div>
-      {#
-      <iframe id="wiz" width="160" height="80" src="https://wizpert.com/wizapi/widget?beta_key=3ba42&ep=30529&size=small&topic_slug=python-programming" frameborder="0" scrolling="no" allowfullscreen></iframe>
-      #}
-    </div>
-    <div>
       <p class="instructions">Share this post for much win.</p>
       <div class="body">
-        <a href="http://www.reddit.com/submit" onclick="window.location = 'http://www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"> <img class="inline" height=19 style="padding-bottom: 1px" src="http://www.reddit.com/static/spreddit1.gif" alt="submit to reddit" border="0" /> </a>
-        <span class="g-plusone" data-size="medium" data-annotation="none"></span>
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="kgriffs" data-count="none">Tweet</a>
+        <script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share" data-url="http://blog.kgriffs.com{{ item.url }}"></script>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
       </div>
     </div>
   </div>
@@ -31,40 +25,14 @@
 
   <div class="next-prev">
     {% if item.next %}
-    <a href="{{ item.next.url }}">&lArr; {{ item.next.title }}</a>
+    <a href="{{ item.next.url }}">&#8678; {{ item.next.title }}</a>
     {% endif %}
     {% if item.next and item.prev %}&nbsp;&nbsp;|&nbsp;&nbsp;{% endif %}
     {% if item.prev %}
-    <a href="{{ item.prev.url }}">{{ item.prev.title }} &rArr;</a>
+    <a href="{{ item.prev.url }}">{{ item.prev.title }} &#8680;</a>
     {% endif %}
   </div>
 
-  <script type="text/javascript">
-    (function() {
-      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-      po.src = '//apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-    })();
-  </script>
-
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-{% if item.id %}
-
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-    var disqus_shortname = 'fluffywhitestuff';
-    var disqus_identifier = '{{ item.id }}';
-    var disqus_url = 'http://blog.kgriffs.com{{ item.url }}';
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-{% endif %}
 
 </div>
 {% endblock %}

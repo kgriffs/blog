@@ -17,5 +17,3 @@ If you'd like to talk shop, or just say hi, here are a few places you can find m
 * https://www.linkedin.com/in/kurtgriffiths/
 
 Thanks for stopping by!
-
-@kgriffs

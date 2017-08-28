@@ -1,27 +1,33 @@
 @import "base";
 
-$header-font: 'Chelsea Market';
+$header-font: 'Raleway';
+$mono-font: 'Inconsolata';
 
-$faded-color: black;
-$link-color-for-faded: #4d4d4d;
-$link-color-body: #d06e01;
-$separator-color: #999;
+$faded-color: #000;
+$link-color-for-faded: #63959f;
+$link-color-body: $link-color-for-faded;
+$separator-color: #44666d;
+$content-footer-background: #ddd;
+
+@mixin outside-font {
+    color: #44666d;
+    text-shadow: rgba(255, 255, 255, 0.2) 1px 1px 0px;
+}
 
 //
 // BASE ELEMENTS
 //
 body {
-  background-color: #fefefe;
+  background-color: #95c7d0;
   font: {
-    family: "PT Sans", "Helvetica", sans-serif;
-    size: 16px; }; }
+    family: 'Raleway', sans-serif;
+    size: 14px; }; }
 
 sup {
   vertical-align: super;
   font: {
-    size: 60%;
-    weight: bolder;
-    family: "Verdana", sans-serif;
+    size: 80%;
+    weight: bold;
   };
   line-height: 0.5em;
 }
@@ -31,10 +37,10 @@ blockquote, dl, ol, p, pre, ul {
 
 blockquote {
   overflow: hidden;
-  margin-left: 35px;
+  margin: 2em 35px;
   padding: 0px 15px 0px 15px;
   background-color: #f2f2f2;
-  border: 1px solid $separator-color;
+  border: 1px solid #777;
   @include box-shadow(0px 0px 0px 2px #f7f7f7);
   color: #737373;
   font-style: italic; }
@@ -90,8 +96,7 @@ h2 {
 h4, h5, h6 {
   font: {
     style: normal;
-    weight: normal; };
-  text-transform: uppercase; }
+    weight: normal; } }
 
 h5, h6 {
   font-size: 12px; }
@@ -157,7 +162,7 @@ li {
 
 pre, code {
   font: {
-    family: "Inconsolata", monospace;
+    family: $mono-font, monospace;
     size: 11pt;
   };
 }
@@ -188,37 +193,6 @@ td, th {
   padding: 4px
 }
 
-/*
-table {
-  border: 1px solid $separator-color;
-  border-bottom-width: 0px;
-  border-collapse: collapse;
-  @include box-shadow(0px 0px 0px 2px #f7f7f7); }
-
-td, th {
-  padding: 2px;
-  border-bottom: 1px solid $separator-color;
-  border-left: 1px dotted $separator-color;
-  &:first-child {
-    border-left-width: 0px; }
-  & > :first-child {
-    margin-top: 0px; }
-  & > :last-child {
-    margin-bottom: 0px; }
-  & > * {
-    margin: 5px 0px 5px 0px; }
-  tbody tr:nth-child(2n) & {
-    background-color: #f2f2f2; }
-}
-
-th {
-  font-weight: bold;
-  text-align: center;
-  tbody & {
-    text-align: right; }
-  thead & {
-    background-color: #f2f2f2; } }
-*/
 
 ul {
   &.unstyled {
@@ -238,7 +212,6 @@ small {
   font: {
     size: 10px;
     style: italic; };
-  text-transform: uppercase;
   a {
     color: $link-color-for-faded; } }
 
@@ -278,9 +251,11 @@ i, em {
     display: block; }
 
   a {
-    color: #333;
+
+    @include outside-font;
+
+    // color: #333;
     font: {
-      family: $header-font, Arial;
       size: 12px; };
 
     text-transform: uppercase;
@@ -304,23 +279,29 @@ i, em {
 // HEADER
 #header {
   margin: 40px 0px 40px 0px;
+  width: 940px;
+
+  @include outside-font;
+
   h1, h2 {
     margin: 0px;
     padding: 0px; }
+
+    font-family: 'Nixie One', sans-serif;
+
+    & a {
+      color: #44666d;
+    }
+
   h1 {
     font: {
-      family: 'Londrina Shadow', Arial;
-      size: 63px;
-      weight: normal; }; }
+      size: 63px; }; }
   h2 {
     border-bottom-width: 0px;
     color: $faded-color;
     font: {
-      weight: normal;
-      family: 'Annie Use Your Telescope', Arial;
       size: 21px;
     }
-    font-weight: normal;
     text: {
       shadow: none;
       transform: none; }; }
@@ -337,21 +318,25 @@ i, em {
 // CONTENT
 #content {
   color: #333;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .next-prev {
-  margin-top: 2em;
+  padding: 10px;
+  margin: 0 -10px -10px -10px;
+  border-radius: 0 0 10px 10px;
+  background-color: $content-footer-background;
 }
 
 ul.footnotes {
-  color: $faded-color;
-  margin-left: 0;
-  margin-top: 1.5em;
-  padding: 3px;
-  background-color: #eee;
+  margin: 1.5em -10px 0 -10px;
+  padding: 10px;
+  background-color: $content-footer-background;
 
-  border-top: 1px solid $separator-color;
-  border-bottom: 1px solid $separator-color;
+  // border-top: 1px solid $separator-color;
+  font-size: smaller;
 
   sup {
     font-style: normal;
@@ -371,17 +356,16 @@ ul.footnotes {
 #content .archive-header {
   h1 {
     padding-bottom: 5px;
-    text-transform: uppercase;
 
     font: {
-      family: $header-font, Arial;
+      family: $header-font, sans-serif;
       size: 22px;
       style: normal; } }
 }
 
 span.mono {
   font: {
-    family: "Envy Code R", monospace;
+    family: $mono-font, monospace;
     size: 120%;
   };
   padding-bottom: 1px;
@@ -392,7 +376,8 @@ div.item {
   img {
     float: right;
     border: 0;
-    margin: 0; }
+    margin: 0 0 5px 5px;
+  }
 
   img.inline {
     float: none;
@@ -440,22 +425,19 @@ div.item {
       padding: 0px; }
     h1 {
       padding-bottom: 5px;
-      text-transform: uppercase;
 
       font: {
-        family: $header-font, Arial;
-        size: 24px;
-        style: normal;
-        weight: normal; } }
+        family: $header-font, sans-serif;
+        size: 26px;
+        style: normal; } }
     h2 {
       border-bottom-width: 0px;
       color: $faded-color;
       font: {
-        size: 12px;
+        size: 8px;
         weight: normal; };
       text: {
-        shadow: none;
-        transform: uppercase; };
+        shadow: none; };
       a {
         color: $link-color-for-faded;
         &:hover {
@@ -464,14 +446,9 @@ div.item {
         position: relative;
         top: -2px; } } }
 
-  div.footer {
-    font: {
-      size: 12px;
-      weight: bold;
-    }
-    text-transform: uppercase; } }
-
   #sidebar {
+    @include outside-font;
+
     position: fixed;
     z-index: 10;
     margin-left: -200px;
@@ -481,10 +458,10 @@ div.item {
     }
 
     .instructions {
-      font-family: 'Annie Use Your Telescope', Arial;
-      font-size: 14px;
+      font-size: 10px;
+      font-weight: bold;
       width: 150px;
-      margin: 0;
+      margin: 0 0 2px 0;
     }
 
     .subtext {
@@ -502,6 +479,7 @@ div.item {
   h2 {
     margin-bottom: -10px;
   }
+}
 
 
 div.pagination {
@@ -513,8 +491,7 @@ div.pagination {
       style: italic;
       weight: bold; };
     text: {
-      align: center;
-      transform: uppercase; }; }
+      align: center; }; }
   a {
     color: $link-color-for-faded; } }
 
@@ -552,10 +529,10 @@ dl.archives {
 // FOOTER
 #footer {
   margin: 40px 0px 15px 0px;
-  border-top: 1px solid;
   font-size: 10px;
-  color: $faded-color;
-  text-transform: uppercase; }
+
+  @include outside-font;
+}
 
 // PYGMENTS
 div.code {
