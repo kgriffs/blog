@@ -5,9 +5,9 @@ summary: "Comparing GraphQL to REST isn't really a fair comparison. But let's do
 tags: [code]
 ---
 
-Since starting a new project for my stealth startup, I've been looking into GraphQL vs. REST.
+Since kicking off a new project for my startup, I've been looking into GraphQL vs. REST.
 
-First of all, it's important to note that GraphQL is only for read-only APIs. You still need some other mechanism for updating resources. Also note that REST is a comprehensive _architectural style_, not a protocol. So this isn't really a debate about whether to use one or the other. We'll need both for the foreseeable future.
+First of all, it's important to note that GraphQL is just for read-only APIs. You still need some other mechanism for updating resources. Also note that REST is a comprehensive _architectural style_, not a protocol. So this isn't really a debate about whether to use one or the other. We'll need both for the foreseeable future.
 
 That being said, there are a great many devs who never really understood REST (still thinking in terms of RPC or CRUD, but just using HTTP verbs instead of method names) and are excited to have somewhere else to go. We tend to write RPC-style clients for REST APIs, and then proceed to complain about REST not being a useful architectural style. It's a self-fulfilling prophecy.
 
