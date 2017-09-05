@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 {% if site.author %}<meta name="author" content="{{ site.author }}">{% endif %}
-<meta name="description" content="{{ post.excerpt or post.summary if post else site.description }}">
+<meta name="description" content="{{ item.summary or item.excerpt if item else site.description }}">
 <meta name="generator" content="mynt v{{ site.version }}">
 
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
