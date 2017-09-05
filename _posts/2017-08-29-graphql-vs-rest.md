@@ -1,7 +1,7 @@
 ---
 layout: post.html
 title: "GraphQL vs. REST"
-summary: "Comparing GraphQL to REST isn't really a fair comparison. But let's do it anyway."
+summary: "Comparing GraphQL to REST is like comparing apples and oranges. But let's do it anyway."
 tags: [code]
 ---
 
