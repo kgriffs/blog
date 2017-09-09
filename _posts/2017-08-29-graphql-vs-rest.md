@@ -7,15 +7,17 @@ tags: [code]
 
 Since kicking off a new project for my startup, I've been looking into GraphQL vs. REST.
 
-First of all, it's important to note that GraphQL is just for read-only APIs. You still need some other mechanism for updating resources. Also note that REST is a comprehensive _architectural style_, not a protocol. So this isn't really a debate about whether to use one or the other. We'll need both for the foreseeable future.
+First of all, it's important to note that REST is a comprehensive _architectural style_, not a protocol. And I don't think this is really a debate about whether to use one or the other. We'll need both for the foreseeable future.
 
-That being said, there are a great many devs who never really understood REST (still thinking in terms of RPC or CRUD, but just using HTTP verbs instead of method names) and are excited to have somewhere else to go. We tend to write RPC-style clients for REST APIs, and then proceed to complain about REST not being a useful architectural style. It's a self-fulfilling prophecy.
+GraphQL really shines only as long as you are only talking about rich read-only data APIs. It really can be quite elegant. GraphQL does support mutations as well, but they are essentially just a way of tacking on RPC calls. Some devs think this is the bee's knees, but that's because they never really understood REST in the first place. They've never moved past thinking in terms of RPC or CRUD, but just using HTTP verbs instead of method names. 
 
-So it's important to not conflate GraphQL (or REST) with RPC. Better to judge them on their own merits rather than squinting at them through a dirty lens.
+Case in point: we tend to write RPC-style clients for REST APIs, and then proceed to complain about REST not being a useful architectural style. It's a self-fulfilling prophecy.
 
-GraphQL does have some attractive qualities. It's not really RPC-over-HTTP, more like read-only-SQL-over-HTTP, but decoupled from the backend data model. So I suppose it is better than what has been tried before. 
+So of course they are excited to have somewhere else to go. 
 
-With GraphQL you can potentially reduce the number of calls to your API, conserve bandwidth, and improve client responsiveness. That being said, GraphQL may make it harder for the server to effectively cache responses, since different clients can query for wildly different data sets.
+That's not to say GraphQL is devoid of attractive qualities. Especially if you don't try to use it to mutate state. 
+
+With GraphQL you can potentially reduce the number of calls to your API, conserve bandwidth, and improve client responsiveness. On the other hand, GraphQL may make it harder for the server to effectively cache responses, since different clients can query for wildly different data sets.
 
 [GitHub makes some reasonable justifications](https://githubengineering.com/the-github-graphql-api/) for moving to GraphQL in the latest version of their API. On the other hand, note how they appeal to their own authority as API experts to convince you that you should trust them. Maybe. Just remember, do your own homework. **#youarenotgithub** **#youarenotfacebook**
 
