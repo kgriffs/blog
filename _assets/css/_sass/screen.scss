@@ -227,9 +227,16 @@ i, em {
 // EVERYTHING ELSE
 //
 #container {
-  margin: 0px auto 0px auto;
-  width: 640px; }
+  margin: 0 auto 0 auto;
+  width: 640px;
+}
 
+@media (max-width: 1055px) {
+  #container {
+      margin: 0 0 0 240px;
+      width: 90%;
+  }
+}
 // NAV
 #nav {
   @include clearfix;
@@ -452,16 +459,35 @@ div.item {
     position: fixed;
     z-index: 10;
     margin-left: -200px;
+    margin-top: -12px;
 
     #wiz {
       margin-left: -5px;
+    }
+
+    img {
+      float: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .invitation {
+      width: 150px;
+
+      a {
+        font-weight: bold;
+      }
     }
 
     .instructions {
       font-size: 10px;
       font-weight: bold;
       width: 150px;
-      margin: 0 0 2px 0;
+      margin: 4em 0 2px 0;
+    }
+
+    .body .IN-widget {
+      height: 22px;
     }
 
     .subtext {
